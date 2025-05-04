@@ -4,9 +4,21 @@ Footroll is a turn-based football (soccer) simulation board game designed for tw
 #### **Created by Aleix Puig Sitjes**
 
 ## Rulebook
-Footroll is release in two levels of complexity:
+Footroll is release in two editions with two levels of complexity:
 - **Footroll advanced**
 - **Footroll simplified**
+
+## Cheat Sheets
+### Mechanics cheat sheet
+### Action cheat sheet
+### Teams cheat sheet
+
+## How To
+### Build your team
+### Build your pitch
+### Build your footroll boardgame
+
+## Tutorials
 
 ## Helper Apps
 ### Footroll Pitch Creator
