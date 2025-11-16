@@ -5,38 +5,41 @@
 \usepackage{hyperref}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
 \geometry{margin=1in}
 \setlist{leftmargin=*}
-\newcommand{\RulebookImage}[2][0.85\textwidth]{%
+\setlength{\parskip}{0.75em}
+\setlength{\parindent}{0pt}
+\newcommand{\RulebookImage}[2][0.55\textwidth]{%
   \begin{figure}[h]
     \centering
     \includegraphics[width=#1]{#2}
   \end{figure}}
-\newcommand{\RulebookInlineImage}[2][0.3\textwidth]{%
+\newcommand{\RulebookInlineImage}[2][0.22\textwidth]{%
   \includegraphics[width=#1]{#2}}
 \begin{document}
 
-\section{\textbf{FOOTROLL}}
-
-\textbf{Rulebook}
-
-\section{\textbf{(advanced edition)}}
-
-\subsection{0.12.1 (beta)}
-
-\RulebookImage{images/image15.png}
-
-
-\RulebookImage{images/image9.png}
-
-
-\paragraph{\underline{\href{https://www.google.com/url?q=https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode&sa=D&source=editors&ust=1763256892399332&usg=AOvVaw1kUUHriWW4eqgoNTEEr9D4}{Attribution-NonCommercial-ShareAlike 4.0 International }}}
-
-\paragraph{\underline{\href{https://www.google.com/url?q=https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode&sa=D&source=editors&ust=1763256892399696&usg=AOvVaw3tIlzYBvhNekEpa5yruDMP}{(CC BY-NC-SA 4.0)}}}
-
-\section{\textbf{Created by Aleix Puig Sitjes}}
-
-\section{\textbf{aleix.puig@gmail.com}\bigskip\hrule\bigskip}
+\begin{titlepage}
+\centering
+\vspace*{1cm}
+\begin{center}
+  \begin{minipage}{0.8\textwidth}
+    \centering
+    {\fontsize{72}{78}\selectfont\textbf{FOOTROLL}\\[0.6em]}
+    {\fontsize{28}{32}\selectfont\textbf{Rulebook}\\[0.35em]}
+    {\large (advanced edition)\\[1em]}
+    {\large Version 0.12.1 (beta)}
+  \end{minipage}
+\end{center}
+\vspace{2em}
+\includegraphics[width=0.45\textwidth]{images/image15.png}\\[1.5em]
+{\Large Created by Aleix Puig Sitjes\\[0.25em]}
+{\large aleix.puig@gmail.com\\[2em]}
+\vfill
+\includegraphics[width=0.25\textwidth]{images/image9.png}\\[0.75em]
+\href{https://www.google.com/url?q=https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode&sa=D&source=editors&ust=1763256892399332&usg=AOvVaw1kUUHriWW4eqgoNTEEr9D4}{Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)}
+\end{titlepage}
 
 \section{\textbf{The Game}}
 
