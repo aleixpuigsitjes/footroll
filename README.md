@@ -8,7 +8,7 @@ Footroll is a turn-based football (soccer) simulation board game designed for tw
 
 ## Rulebook
 Footroll is released in two editions:
-- **Footroll Advanced**
+- [**Footroll Advanced**](./rulebook/footroll_rulebook.pdf)
 - **Footroll Simplified**
 
 ## Cheat Sheets
