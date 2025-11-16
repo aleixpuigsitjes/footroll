@@ -1,0 +1,32 @@
+Tutorial
+flowchart
+Cards for fouls
+	resolve fouls (yellow or red or none) and its interpretation with a card deck
+Cards
+	crowd in favor +1
+	prevent injury
+	referee in favor (no faults)
+	bad weather -1
+	tiredness
+	divine ilumination (skill 10)
+	third time's the charm
+Winning conditions card (short/long game)
+	
+simplified footroll
+	agrupar habilitats (atac, defensa, mig, porter)
+	xuts amb una sola tirada
+	no efectes
+	no primer toc
+	no intercepcions
+	un tipus de passes
+
+Reduir tirades de dau (mesurar distancies tumbe és tediós)
+	shot-pass skill /3 determines short-pass threshold, below threshold no dice if not intercept able, otherwise roll against opponent
+	limit one-touch actions to 1
+
+
+https://www.spielematerial.de/en/
+
+Asociación Ludo: https://asociacionludo.com/
+
+Fabricació: https://www.agrpriority.com/juegos-de-mesa
