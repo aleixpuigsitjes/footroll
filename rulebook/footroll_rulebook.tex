@@ -1,0 +1,1329 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{graphicx}
+\geometry{margin=1in}
+\setlist{leftmargin=*}
+\newcommand{\RulebookImage}[2][0.85\textwidth]{%
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=#1]{#2}
+  \end{figure}}
+\newcommand{\RulebookInlineImage}[2][0.3\textwidth]{%
+  \includegraphics[width=#1]{#2}}
+\begin{document}
+
+\section{\textbf{FOOTROLL}}
+
+\textbf{Rulebook}
+
+\section{\textbf{(advanced edition)}}
+
+\subsection{0.12.1 (beta)}
+
+\RulebookImage{images/image15.png}
+
+
+\RulebookImage{images/image9.png}
+
+
+\paragraph{\underline{\href{https://www.google.com/url?q=https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode&sa=D&source=editors&ust=1763256892399332&usg=AOvVaw1kUUHriWW4eqgoNTEEr9D4}{Attribution-NonCommercial-ShareAlike 4.0 International }}}
+
+\paragraph{\underline{\href{https://www.google.com/url?q=https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode&sa=D&source=editors&ust=1763256892399696&usg=AOvVaw3tIlzYBvhNekEpa5yruDMP}{(CC BY-NC-SA 4.0)}}}
+
+\section{\textbf{Created by Aleix Puig Sitjes}}
+
+\section{\textbf{aleix.puig@gmail.com}\bigskip\hrule\bigskip}
+
+\section{\textbf{The Game}}
+
+Footroll is a turn-based football (soccer) simulation board game designed for two players, offering a highly realistic gameplay experience. By combining a comprehensive set of rules, unique skill sets, and dice rolls, the game meticulously reproduces a wide range of football match scenarios. Footroll emphasizes the importance of tactics, player positioning, and playing styles in the game's development. Players resolve actions through dice rolls and straightforward calculations, easily performed with a regular calculator. This intricate yet accessible system ensures that each match is both strategic and engaging.
+
+\subsubsection{\textbf{How to Learn These Rules}}
+
+The learning curve for Footroll can be steep as this ruleset must comprehensively resolve all situations without ambiguity. The most effective way to learn the game is to read the "Game Mechanics" ruleset and then play test games, even if the rules are not fully assimilated. Players can learn how to resolve different situations and game actions, as described in "Game Actions," as they occur during these test games.
+
+ \textbf{Note}: the most complex situation to resolve in Footroll is a shot at goal as a direct free-kick with an effect and a wall of defenders.
+
+\textbf{The Football Rules}
+
+Footroll follows the official FIFA rules for football, unless otherwise specified in the game's ruleset.
+
+\textbf{Winning Conditions}
+
+Footroll is a turn-based game with no time limit. The match ends when a specified number of goals are scored.
+
+\textbf{}\textbf{Note: }A consequence of this rule is that the game is not divided into two halves.
+
+The winning conditions can vary:
+
+\textbf{One-side Maximum Goals}
+
+\begin{itemize}
+\item One side scores 1 goal: 1-0 (golden goal)
+\item One side scores 2 goals: 2-0, 2-1
+\item One side scores 3 goals: 3-0, 3-1, 3-2 (recommended for tournament matches)
+\item One side scores 4 goals: 4-0, 4-1, 4-2, 4-3
+\item One side scores 5 goals: 5-0, 5-1, 5-2, 5-3, 5-4
+\end{itemize}
+
+\textbf{Total Maximum Goals}
+
+\begin{itemize}
+\item Total goals are 2: 2-0, 1-1 (recommended for short league matches)
+\item Total goals are 3: 3-0, 2-1
+\item Total goals are 4: 4-0, 3-1, 2-2
+\item Total goals are 5: 5-0, 4-1, 3-2
+\end{itemize}
+
+\textbf{One-sided Plus Total Maximum Goals}
+
+\begin{itemize}
+\item One side scores 3 goals or a total of 4 goals are scored: 3-0, 3-1, 2-2 (recommended for long league matches)
+\end{itemize}
+
+\textbf{Maximum Goal Difference Without Limit}
+
+\begin{itemize}
+\item One side scores 2 goals more than the opponent: 2-0, 3-1, 4-2, 5-3, ...
+\item One side scores 3 goals more than the opponent: 3-0, 4-1, 5-2, 6-3, ...
+\end{itemize}
+
+\textbf{Maximum Goal Difference With One-Side Limi}t
+
+\begin{itemize}
+\item One side scores 2 goals more than the opponent, or one side scores 5 goals: 2-0, 3-1, 4-2, 5-3, 5-4
+\item One side scores 3 goals more than the opponent, or one side scores 5 goals: 3-0, 4-1, 5-2, 5-3, 5-4 (recommended for a tournament final)
+\end{itemize}
+
+\textbf{Maximum Goal Difference With Total Limit}
+
+\begin{itemize}
+\item One side scores 2 goals more than the opponent or a total of 4 goals are scored: 2-0, 3-1, 2-2
+\item One side scores 2 goals more than the opponent or a total of 5 goals are scored: 2-0, 3-1, 3-2
+\item One side scores 2 goals more than the opponent or a total of 6 goals are scored: 2-0, 3-1, 4-2, 3-3
+\end{itemize}
+
+\subsubsection{\textbf{The Pitch}}
+
+The game is played on a board (the pitch) according to the FIFA rules scaled to 1 yard: 1 cell. The pitch must have the lines of an official football pitch visible. Additionally, the pitch must have a grid of cells of 1 yard with a line width smaller than the regular lines. The grid is used to move the footballers and to calculate distances. A footballer occupies one cell of the grid, and it can only move within the grid cells. The grid includes a value for each cell that is used to calculate the difficulty of shooting at the goal from that position.
+
+FIFA does not specify a fixed size of the pitch. Instead, it limits the pitch to a minimum and maximum size. In the same way, Footroll does not define a fixed pitch size as long as it respects the FIFA rules and the specified scaling factor. The size of the pitch has an impact on the game tactics, and it is a factor that the players can use to their advantage. FIFA recommends a pitch size of 114x74 yards. However, this is a rather large pitch and it is recommended to play footroll in a smaller pitch (100 x 64 yards) to make the gameplay more fun.
+
+\RulebookImage{images/image13.png}
+
+\emph{The allowed football pitch sizes and pitch element definitions.}
+
+\paragraph{Measurement of Distances}
+
+Some game actions require the measurement of distances. All distances are measured in yards (cells in the grid). To measure distances, the \emph{manhattan }distance is used (see below). The distances are measured by making use of the grid. The ball trajectory, however, is not affected by the grid geometry and follows a straight trajectory.
+
+\RulebookImage{images/image21.png}
+
+\emph{The manhattan distance is defined as the length of the minimum path between two points following right angle (orthogonal) trajectories. Diagonal trajectories are prohibited. There is more than one possible minimum path, but all have the same length (the blue and green paths have the same manhattan length). The use of the manhattan distance avoids the fact that diagonal movements are faster than orthogonal movements in a grid.}
+
+A manhattan distance has two components (x, y). \emph{x }corresponds to the component in the direction of the long axis of the football field and \emph{y }corresponds to the component in the direction of the short axis of the football field.
+
+\subsubsection{The Pawns}
+
+Each player has as many pawns as footballers in the team. The pawns must fit one cell of the grid. The pawns are the same color and different from the opponent's figures. The pawns have the number that uniquely identifies the footballer.
+
+The ball is represented by a special figure. The ball's position indicates which footballer possesses the ball but is not relevant to the gameplay. Only the position of the footballer is taken into account when measuring distances or considering positions.
+
+\subsubsection{\textbf{The Skills}}
+
+Each player has a skills table that describes the skills of the team's footballers. The teams can be real or fictitious. The skills are scored over 100 in multiples of 10. Footroll does not specify the footballer's score. As a reference, the following values can be used for a top-line professional team:
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Scores} &  \\
+\hline
+Really bad & 50 \\
+\hline
+Below average & 60 \\
+\hline
+On average & 70 \\
+\hline
+Above average & 80 \\
+\hline
+Top class & 90 \\
+\hline
+Extraordinary & 100 \\
+\hline
+\end{tabular}
+
+The scored skills are the following:
+
+\begin{itemize}
+\item \textbf{Scissors-kick: }a shot towards the opponent's goal facing backward and throwing the ball above the player's head.
+\item \textbf{Lob: }a shot toward the opponent's goal using a parabolic trajectory of the ball passing above the goalkeeper.
+\item \textbf{Finish: }a shot toward the opponent's goal without stopping the ball once the ball is received.
+\item \textbf{Offensive-header: }a header toward the opponent's goal.
+\item \textbf{Penalty: }a shot toward the opponent's goal from the penalty point after receiving a foul inside the opponent's penalty area.
+\item \textbf{Effect}: a shot with an effect has a curved trajectory.
+\item \textbf{Shoot: }a shot toward the opponent's goal while the ball is in play.
+\item \textbf{Free-kick: }a shot toward the opponent's goal after receiving a foul outside the opponent's penalty area.
+\item \textbf{Slip: }the action of overcoming the mark of a defender without the possession of the ball.
+\item \textbf{Dribble: }the action of overtaking a defender with the possession of the ball while moving the ball forward.
+\item \textbf{Feint: }the action of avoiding a defender to take control of the ball using a tackle.
+\item \textbf{Low-pass: }the action of passing the ball to a teammate at a short distance.
+\item \textbf{High-pass:} the action of passing the ball to a teammate at a long distance.
+\item \textbf{Throw-in: }the action of passing the ball to a teammate from outside of the pitch by making use of the hands after the ball was sent out of the field limits.
+\item \textbf{Defensive-header: }a header with the aim to deflect a ball and pass it to a teammate.
+\item \textbf{Intercept:} the action of taking control of the ball by intercepting the trajectory of an opponent's pass.
+\item \textbf{Tackle: }the action against the attacker who has possession of the ball and taking control of it.
+\item \textbf{Mark: }the action of preventing an attacker to move freely.
+\item \textbf{Reach:} the action of the goalkeeper when trying to get to the position of the ball during a shoot against the own goal.
+\item \textbf{Catch: }the action of the goalkeeper of taking control of the ball with his hands during a shoot against the own goal.
+\item \textbf{Hand-tackle: }the action of the goalkeeper taking control of the ball using his feet and hands.
+\item \textbf{Goal-kick: }the action of restarting the game from the limit of the goal area using a pass to a teammate.
+\item \textbf{Hand-pass: }the action of the goalkeeper to pass the ball to a teammate using his hands from within his penalty area.
+\item \textbf{Strength:} the physical strength of a footballer.
+\item \textbf{Shot-power: }the kinetic energy that a footballer can transfer to the ball during a shoot.
+\item \textbf{Header-power:} the kinetic energy that a footballer can transfer to the ball during a header.
+\item \textbf{Velocity:} the running speed of a footballer.
+\end{itemize}
+
+\subsubsection{\textbf{The Dice}}
+
+\paragraph{Dice Roll Over 100 (D100\textbf{)}}
+
+Most actions are resolved using a dice roll over 100 (D100). The value is obtained by rolling two 10-sided dice, one for the tens and another one for the units. The two dice must be distinguishable. The obtained value has the range [0, 99] and represents the percentage of the skill value achieved.
+
+\paragraph{Dice Roll Over 8 (D8\textbf{)}}
+
+Some actions need to determine a direction. To this end, a dice roll over 8 (D8) is used. The value D8 has a range [1, 8], 1 represents the direction towards the player's side of the field, and 8 is the direction toward the opponent's side of the field.
+
+Opponent's side
+
+\RulebookImage{images/image10.png}
+
+Own's side
+
+\textbf{Fouls Dice}
+
+Fouls are resolved using a special 6-sided dice.
+
+\begin{itemize}
+\item The probability of a foul with a card is 2/6.
+\item The probability of a foul without a card is 3/6.
+\item The probability of a foul being ignored by the referee is 1/6.
+\end{itemize}
+
+Its interpretation is the following:
+
+\begin{tabular}{|l|l|}
+\hline
+\RulebookInlineImage[0.18\textwidth]{images/image18.png} & The foul is resolved with a card \\
+\hline
+\RulebookInlineImage[0.18\textwidth]{images/image11.jpg} & The foul is resolved without a card \\
+\hline
+(empty) & The foul is ignored by the referee \\
+\hline
+\end{tabular}
+
+\paragraph{C\textbf{ards Dice}}
+
+To determine the color of the card (yellow for booking, red for sending off) is determined by a 6-sided dice:
+
+\begin{itemize}
+\item The probability of a yellow card is 4/6
+\item The probability of a red card is 2/6.
+\end{itemize}
+
+Its interpretation is the following:
+
+\begin{tabular}{|l|l|}
+\hline
+\RulebookInlineImage[0.18\textwidth]{images/image17.png} & The footballer is booked with a yellow card \\
+\hline
+\RulebookInlineImage[0.18\textwidth]{images/image20.png} & The footballer is sent off with a red card \\
+\hline
+\end{tabular}
+
+\subsection{\textbf{Resolution of Actions}}
+
+All operations are rounded to the nearest integer.
+
+\textbf{Action Score}
+
+A dice roll over 100 (D100) is used to determine the score of an action. The value of the dice roll represents the percentage (\%) that has been achieved of the footballer's skill value \emph{S} in that action:
+
+\textbf{A = D}\textbf{100}\textbf{/100} \textperiodcentered{} \textbf{S}
+
+\textbf{Action Result}
+
+\textbf{Success or failure}
+
+The action result \emph{R} can be calculated as the difference between the action score \emph{A} and the difficulty \emph{D }of that action:
+
+\textbf{R = A -- D }
+
+\begin{itemize}
+\item An action is \textbf{successful} if the action score \emph{A} is equal to or higher than a difficulty \emph{D} or \textbf{R $\geq$ 0}
+\item An action \textbf{fails} if the action score \emph{A} is lower than the difficulty \emph{D} or \textbf{R < 0}
+\end{itemize}
+
+\textbf{Error Magnitude}
+
+If the action fails, the error magnitude \emph{E} is calculated as \textbf{E = D -- A}
+
+\textbf{Success Rate}
+
+In some cases, the result of an action is measured as a success rate (the action score \emph{A} over 100) of the maximum achievable result (the complementary of the difficulty \emph{100-D}):
+
+\textbf{R = A/100 \textperiodcentered{} (100-D)}
+
+\textbf{Oneself Actions}
+
+The outcome of some actions only depends on the skill of the footballer. In these cases, the difficulty \emph{D} is the complementary of the skill value \emph{S}:
+
+\textbf{ D = 101 - S}
+
+\textbf{}\textbf{Note}\textbf{: }101 guarantees a chance of failure, even with skill value 100.
+
+\textbf{One-on-One Actions}
+
+Some actions are compared to an opponent's action. In this case, the difficulty is the opponent's action score.
+
+\textbf{D = A}\textbf{opponent}
+
+The player who gets a higher action score wins. In case of a draw, the dice roll is repeated.
+
+\textbf{Modifiers}
+
+In certain circumstances, some actions have modifiers that add to the difficulty \emph{D}.
+
+\subsubsection{Reach Zone}
+
+Some actions can only be executed if the ball or an opponent is within the \emph{reach zone} of the footballer. The \emph{reach zone} of a footballer is defined as one square yard around him (1 cell of the grid).\bigskip\hrule\bigskip
+
+\section{\textbf{Game Mechanics}}
+
+\subsubsection{Start of The Game}
+
+A D100 dice roll determines the first possession of the ball. The player who rolls the highest number wins the roll and starts the game. Afterward, both teams place their footballers on their side of the field following their preferred tactic distribution. The player starting the game must place a footballer in the center spot together with the ball.
+
+\textbf{}\textbf{Note: }Note that since there is no second-half, winning the ball at the start of the game gives you some gaming advantage.
+
+\subsubsection{Kick-Off}
+
+A \emph{kick-off }happens at the start of the game and after a goal is scored.
+
+\subsubsection{\textbf{Restart of The Game}}
+
+When the game restarts, the placement of the footballers follows these rules:
+
+\begin{itemize}
+\item The footballers of the attacking team are placed on the field first, followed by the footballers of the defending team.
+\end{itemize}
+
+\textbf{[Search]}\textbf{Special case}: If, after placing the footballers of the defending team, there are footballers of the attacking team in the offside position, the attacking player can reposition them to the closest point on the offside line. The defending team is not allowed to make further changes.
+
+\textbf{}\textbf{Note: }Place the goalkeeper at the last row of the field in front of the goal line.
+
+\textbf{}\textbf{Note: }This sequence applies to all restarts, including \emph{kick-off}, after an \emph{out }(\emph{throw-in}, \emph{corner-kick, goal-kick}) or after a \emph{foul} (\emph{free-kick}).
+
+\subsubsection{\textbf{Turn Phases}}
+
+The game is divided into turns, each consisting of two phases:
+
+\begin{itemize}
+\item \textbf{Action Resolution Phase: }The turn begins with the action resolution phase, where the various actions are resolved.
+\item \textbf{Movement Phase: }After all actions have been resolved, the turn proceeds to the movement phase, where the ball and footballers move according to the actions' resolution.
+\end{itemize}
+
+\textbf{}\textbf{Note: }The action resolution phase does not imply the passage of time and all actions are considered to occur simultaneously.
+
+\textbf{}\textbf{Note:} an action resolved during the action resolution phase may imply the movement of the ball. The ball, however, does not move during the action resolution phase; but during the movement phase, simultaneously with the footballers.
+
+\paragraph{Action Resolution Phase}
+
+\begin{itemize}
+\item Only one action is allowed per footballer per turn.
+\end{itemize}
+
+\textbf{Attacking Team Actions:}
+
+\begin{itemize}
+\item The attacking team resolves their actions first, starting with the footballer possessing the ball.
+\item Depending on the outcome of each action, the player can adjust their remaining actions accordingly.
+\item Some actions require a reaction from the defender which is resolved immediately, and the defender cannot take any further action during their turn.
+\item The attacking player can forgo taking any action during the action resolution phase.
+\end{itemize}
+
+\paragraph{Defending Team Actions:}
+
+\begin{itemize}
+\item After the attacking team resolves their actions, the defending team resolves their actions.
+\item Similar to the actions of attackers, some defender's actions may require a reaction from the attacker, which is resolved immediately.
+\item The defending player can forgo taking any action during the action resolution phase.
+\end{itemize}
+
+\textbf{[Search]}\textbf{Special case:}
+
+\begin{itemize}
+\item If the defending team's actions result in a change in ball possession, the current turn is interrupted immediately. A new turn begins with the defending team now as the attacking team and vice versa.
+\end{itemize}
+
+\paragraph{Movement Phase}
+
+\textbf{Order of Movement:}
+
+\begin{enumerate}
+\item The movement phase begins with the ball's movement, either through a pass or by conduction.
+\end{enumerate}
+
+\textbf{}\textbf{Note:} the receiver of a pass cannot move with possession of the ball in the same turn when the ball is received, as the movement of the ball and footballers occur simultaneously and the ball cannot move further.
+
+\begin{itemize}
+\item The movement of the attacker possessing the ball is not blocked by the presence of a defender in its trajectory during the movement phase.
+\end{itemize}
+
+\textbf{}\textbf{Note:} A defender only blocks an attacker during the action resolution phase (see \emph{blocking} section). The rational for this is that the movement of the attacker and the defender occurs simultaneously, but it is resolved sequentially. A defender may prefer to retreat before being forced to tackle.
+
+\begin{enumerate}
+\item Following the ball's movement, the attacking team moves their footballers without possession.
+\item After the attacking team has moved their footballers, the defending team moves their footballers.
+\end{enumerate}
+
+\textbf{[Search]}\textbf{Special case:}
+
+\begin{itemize}
+\item If the ball is on the opponent's side of the field, the attacking team can choose not to move their footballers on their side, waiting for the opponent to move first. After the defending team has moved, the attacking team can then move the remaining footballers, provided they do not enter the opponent's side of the field after moving.
+\end{itemize}
+
+\textbf{Movement Points:}
+
+\begin{itemize}
+\item Each footballer has as many movement points as their \emph{velocity} skill divided by 10.
+\item A footballer can move one yard (one cell on the board) per turn for each movement point.
+\end{itemize}
+
+\begin{itemize}
+\item Footballers can move fewer yards than their movement points allow, or choose not to move at all during the movement phase.
+\item The movement distance is measured using the manhattan distance. Only horizontal and vertical movement steps are allowed. Diagonal movement steps are forbidden.
+\end{itemize}
+
+\RulebookImage{images/image4.png}
+
+\emph{Turn phases flowchart.}
+
+\subsubsection{\textbf{Blocking}}
+
+A defender blocks an attacker's action or movement if the attacker is within the defender's \emph{reach zone }during the action resolution phase. Here are the specific scenarios and their resolutions:
+
+\textbf{Attacker with Possession of the Ball:}
+
+\begin{itemize}
+\item \textbf{Passing:} The attacker must \emph{feint} and successfully overcome the defender's \emph{tackle} to pass the ball during their turn.
+\item \textbf{Movement:} The attacker must \emph{dribble} and successfully overcome the defender's \emph{tackle} to move forward. The attacker can move backward without the defender's opposition, though the defender can still attempt a \emph{tackle }in their turn.
+\end{itemize}
+
+\textbf{Attacker without Possession of the Ball:}
+
+\begin{itemize}
+\item \textbf{Movement:} The attacker must \emph{slip} and successfully overcome the defender's \emph{mark} to move forward. The attacker can move sideways or in the opposite direction without facing opposition from the defender, and rolling the dice is not required in this case.
+\end{itemize}
+
+\textbf{Defender within Reach of the Attacker with Possession:}
+
+\begin{itemize}
+\item The defender may attempt to \emph{tackle} to gain possession of the ball. The attacker must \emph{feint} to avoid being tackled.
+\end{itemize}
+
+\textbf{[Goal]}\textbf{Hint: }Be aware that blocking is an action that requires dice rolls. A failure can expose your defense, and there is the possibility of committing a foul. Block only when necessary.
+
+\textbf{[Goal]}\textbf{Hint: }Place the defender one yard away from the attacker's position for a "vigilant" non-blocking defensive position.
+
+\subsubsection{Passes}
+
+\begin{itemize}
+\item A pass is performed towards a position, not necessarily where a footballer is present.
+\end{itemize}
+
+\textbf{}\textbf{Note:} A forward pass is possible, where the ball's movement anticipates the receiver's movement. An attacker can make a forward pass to themselves.
+
+\textbf{}\textbf{Note:} if a pass receiver has a defender in their \emph{reach zone} when they reach the ball, a \emph{challenged ball }must be resolved to determine who takes control (see \emph{challenged ball }section).
+
+\begin{itemize}
+\item There are two types of passes: \emph{low-passes} and \emph{high-passes}.
+\end{itemize}
+
+\paragraph{Low\textbf{ passes}}
+
+\begin{itemize}
+\item A \emph{low-pass} is a pass shorter than or equal to 30 yards.
+\item A\emph{ low-pass} can be automatically resolved successfully without rolling dice if it is shorter than or equal to the \emph{following distances }given by the \emph{low-pass} skill:
+\end{itemize}
+
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Low-pass skill} & \textbf{Maximum distance} \\
+\hline
+50 & 5 \\
+\hline
+60 & 10 \\
+\hline
+70 & 15 \\
+\hline
+80 & 20 \\
+\hline
+90 & 25 \\
+\hline
+100 & 30 \\
+\hline
+\end{tabular}
+
+\begin{itemize}
+\item Defenders can intercept a \emph{low-pass} if their \emph{reach zone} intersects the ball's trajectory as a straight line. In that case, dice rolls will be required with the \emph{low-pass} skill against the defender's \emph{intercept} skill to resolve the interception.
+\end{itemize}
+
+\paragraph{High passes}
+
+\begin{itemize}
+\item A \emph{high-pass} must be longer than 30 yards.
+\item A \emph{high-pass} has to be resolved with a die roll using the \emph{high-pass} skill.
+\item A \emph{high-pass} can only be intercepted if a defender is within 2 yards of the footballer with possession and the ball's trajectory intersects the defender's \emph{reach zone}.
+\end{itemize}
+
+\subsubsection{One-touch actions}
+
+\begin{itemize}
+\item A \emph{pass} can be combined with a\emph{ one-touch} action in the same turn. The\emph{ one-touch} action is resolved immediately after the \emph{pass }is resolved and before the movement phase.
+\item The \emph{one-touch }actions include:
+\end{itemize}
+
+\begin{itemize}
+\item \emph{Low-pass}
+\item \emph{Finishing}
+\item \emph{Offensive-header}
+\item \emph{Defensive-header}
+\item \emph{Scissors-kick}
+\end{itemize}
+
+\begin{itemize}
+\item A \emph{low-pass} can be combined with another \emph{low-pass} or \emph{finishing }in the same turn.
+\item A \emph{low-pass} cannot be combined with an \emph{offensive-header}.
+\item A \emph{high-pass} can be combined with an \emph{offensive-header}, \emph{defensive-header} or \emph{scissors-kick}.
+\item A \emph{high-pass} cannot be combined with a \emph{low-pass} or \emph{finishing}.
+\item The attacker performing a \emph{one-touch} action cannot move in this turn, as they have to wait to receive the ball during the movement phase.
+\item It is not possible to concatenate more than \emph{one-touch} action.
+\end{itemize}
+
+\textbf{}\textbf{Note: }A \emph{one-touch} action is \textbf{not} possible with a forward pass. The \emph{one-touch} action is resolved during the action resolution phase, and in a forward pass, the receiver has to move before receiving the ball during the movement phase.
+
+\textbf{[Goal]}\textbf{Hint:} the advantage of \emph{one-touch }actions is that they are resolved before the movement phase, preventing the defenders from adjusting their position, including the goalkeeper.
+
+\paragraph{Indirect Free-kick}
+
+\begin{itemize}
+\item An \emph{indirect free-kick} is resolved like a \emph{pass} using the \emph{low-pass} or \emph{high-pass} skills depending on the distance of the pass.
+\end{itemize}
+
+\paragraph{Direct Free-kick}
+
+\begin{itemize}
+\item When a \emph{direct free-kick} is used to shoot at goal, the action is resolved using the \emph{free-kick} skill.
+\item When a \emph{direct free-kick} is used to pass the ball to a teammate, the action is resolved like a \emph{pass}. Use the \emph{low-pass} or \emph{high-pass} skill, depending on the distance of the pass.
+\end{itemize}
+
+\paragraph{Corner kick}
+
+\begin{itemize}
+\item A \emph{corner-kick} is treated like a \emph{pass} and can be resolved using either the \emph{low-pass} or \emph{high-pass} skills, depending on the distance of the pass.
+\item A \emph{corner-kick} can also be resolved as a \emph{direct free-kick} if it is a shot at goal.
+\end{itemize}
+
+\textbf{}\textbf{Note:} an Olympic goal (scoring directly from a corner kick) is highly improbable unless the shot has an \emph{effect}.
+
+\subsubsection{\textbf{Out}}
+
+\begin{itemize}
+\item When a pass goes out of the field limits, it is considered an \emph{out}. The opposing team will \emph{restart the game} using the \emph{throw-in} or \emph{goal-kick} skill.
+\end{itemize}
+
+\subsubsection{Offside}
+
+Offside rules:
+
+\begin{itemize}
+\item The \emph{offside} position is checked when the pass action takes place.
+\item An attacker is in \emph{offside} position if he is in the opponent's half of the \href{https://www.google.com/url?q=https://en.wikipedia.org/wiki/Association_football_pitch&sa=D&source=editors&ust=1763256892483155&usg=AOvVaw2dh-kL2MMAWFVvTZIcFHaD}{pitch}, and closer to the opponent's \href{https://www.google.com/url?q=https://en.wikipedia.org/wiki/Goal_line_(association_football)&sa=D&source=editors&ust=1763256892483356&usg=AOvVaw2Lw5qNRjCxbeQqIvhePOi4}{goal line} than both the ball and the second-last opponent (the last opponent is usually, but not necessarily, the goalkeeper).
+\end{itemize}
+
+\textbf{Note}: In Footroll, due to its turn-based nature, defenders move after attackers in the Movement Phase, enabling them to systematically advance their defensive line in subsequent turns and force attackers into offside positions before the Action Resolution Phase.
+
+To ensure fair play, the following rule apply:
+
+\textbf{[Search]}\textbf{Special case:}
+
+\begin{itemize}
+\item An attacker is \textbf{not} considered to be in an \emph{offside} position if, during the movement phase of the same turn, the attacker can temporarily get outside the \emph{offside} position with a bouncing movement (moving backward and then forward). This bouncing movement exhausts movement points.
+\end{itemize}
+
+\textbf{}\textbf{Note:} the attacker \textbf{cannot} perform a \emph{one-touch} action in this case, like in forward passes.
+
+\subsubsection{\textbf{Challenged ball}}
+
+When a defender is within the \emph{reach zone} of the receiver of a pass, control of the ball must be determined as follows:
+
+\textbf{Determining Control:}
+
+\begin{itemize}
+\item Each footballer (the receiver and the defender) rolls a value using their \emph{strength} skill.
+\item In their penalty area, the goalkeeper uses their \emph{catch} skill with a bonus of +20.
+\item The footballer with the highest result gains possession of the ball.
+\item If there is a draw, the dice roll is repeated.
+\end{itemize}
+
+\textbf{Actions After Gaining Control:}
+
+\begin{itemize}
+\item After determining control, the pawns' positions are swapped.
+\item The footballer who gains control of the ball can choose to forgo movement and instead perform a \emph{one-touch} action.
+\item The footballer who loses control of the ball cannot take any further action in this turn and loses half their movement points for this turn.
+\end{itemize}
+
+\subsubsection{\textbf{Dead} \textbf{ball}}
+
+A \emph{dead ball} occurs when a ball is not possessed by any footballer, after a failed pass for instance. The following rules apply to resolve which footballer gains control of the ball:
+
+\begin{itemize}
+\item The footballer who arrives at the ball's location with the most remaining movement points takes control of the ball.
+\item If multiple footballers reach the ball's position with the same remaining movement points, the situation is resolved as a \emph{challenged ball}.
+\end{itemize}
+
+\subsubsection{Fouls}
+
+\emph{Fouls} can only be committed by a defender or an attacker in a \textbf{one-on-one action} against a defender (not during passes or shots).
+
+\textbf{Involuntary Foul:}
+
+\begin{itemize}
+\item An involuntary foul occurs if a D100  dice roll results in a value between 1 and 9 (inclusive).
+\item After an involuntary foul a die roll is performed to determine if the footballer is booked with a card.
+\end{itemize}
+
+\textbf{Voluntary Foul:}
+
+\begin{itemize}
+\item A player can decide to commit a voluntary foul.
+\item A voluntary foul is considered an action, therefore no further actions can be taken during the same action resolution phase.
+\item A voluntary foul can only be committed without possession of the ball and if the attacker is within the \emph{reach zone} of the defender.
+\item After a voluntary foul, a card is booked automatically.
+\end{itemize}
+
+\paragraph{Resolving Cards}
+
+\begin{itemize}
+\item If a card is issued, another dice roll determines if it is a yellow or red card.
+\item A second yellow card or a red card results in the footballer being sent off.
+\item If the foul is committed by the last defender, the offender is sent off regardless of the card color.
+\item The foul is marked at the position of the footballer receiving the foul, not the ball position.
+\item When a \emph{foul} occurs, the opponent does not need to roll the dice to resolve their action, which could result in a foul, preventing simultaneous fouls by both players.
+\item If the foul occurs during the restart of the game, the action is repeated.
+\end{itemize}
+
+\textbf{}\textbf{Note}\textbf{: }Interpreting the foul is free depending on the situation (e.g., illegal tackle, handball, aggression, protest to the referee, etc.).
+
+\subsubsection{Injuries}
+
+\textbf{Injuries after a foul}
+
+\begin{itemize}
+\item A potential injury has to be resolved when a footballer receives a foul.
+\end{itemize}
+
+\textbf{Self-inflicted injuries}
+
+\begin{itemize}
+\item A potential injury has to be resolved when a D100 dice roll results in a value of 0 during any action, independently of the skill.
+\end{itemize}
+
+\textbf{Resolving injuries}
+
+\begin{itemize}
+\item A potential injury is resolved as an \emph{oneself}-\emph{action} using a difficulty equal to the complementary of the \emph{strength} skill. To avoid an injury, the difficulty has to be overcome or equaled.
+\end{itemize}
+
+\begin{itemize}
+\item If a footballer with possession of the ball is injured, the opponent does not need to roll the dice to resolve the action and the ball remains in the same position as a \emph{dead} \emph{ball}.
+\end{itemize}
+
+\begin{itemize}
+\item The team with the injured footballer must continue playing without it until a substitution is possible. The injured footballer can be substituted in the next play or when their team gains control of the ball and requests to stop the game.
+\end{itemize}
+
+\textbf{}\textbf{Note}\textbf{:} fair play mandates that the play be immediately interrupted to allow the injured footballer substitution. This, however, is not forced by these rules.
+
+\textbf{[Goal]}\textbf{Hint}: lay the pawn down on the board to indicate an injury.
+
+\subsubsection{\textbf{Shooting at Goal}}
+
+\textbf{Sequence of Actions}:
+
+\begin{enumerate}
+\item The attacker performs a shooting action (\emph{shot}, \emph{penalty}, \emph{free-kick}, \emph{finish, }or \emph{offensive header}).
+\item If the shooting action succeeds, the goalkeeper performs a \emph{reach }action.
+\end{enumerate}
+
+\textbf{[Search]}\textbf{Special cases: }if there is no goalkeeper or any other defender at the goal line, and if the shot is not \emph{intercepted}, a goal is scored if the shooting action succeeds.
+
+If the goalkeeper succeeds in reaching the ball:
+
+\begin{enumerate}
+\item The attacker determines the shot power (\emph{shot-power} or \emph{header-power}).
+\item The goalkeeper performs a \emph{catch }action.
+\end{enumerate}
+
+\textbf{Goal} \textbf{Conditions}:
+
+\begin{itemize}
+\item The \emph{shooting} action is successful, and the goalkeeper's \emph{reach} action fails.
+\item The \emph{shooting} action is successful, and the goalkeeper's \emph{reach} action succeeds, but the goalkeeper's \emph{catch} action fails.
+\end{itemize}
+
+\textbf{Other Considerations}:
+
+\begin{itemize}
+\item A \emph{shot} can only be performed if the attacker possessed the ball in the previous turn.
+\item If the attacker receives the \emph{pass} in this turn, only the following \emph{one-touch} actions can be performed:
+\end{itemize}
+
+\begin{itemize}
+\item \emph{Finish} (from a \emph{low-pass})
+\item \emph{Offensive-header} (from a \emph{high-pass})
+\end{itemize}
+
+\begin{itemize}
+\item A shot against the opponent's goal can be \emph{intercepted} if the ball's trajectory intersects the \emph{reach zone} of a defender.
+\end{itemize}
+
+\textbf{[Search]}\textbf{Special cases: }
+
+\begin{itemize}
+\item \textbf{No goalkeeper but a defender is at the goal line: }The defender uses their \emph{intercept} skill with a higher difficulty (see \emph{reach} action).
+\item \textbf{The goalkeeper is not at the goal line, but inside the penalty area: }
+\end{itemize}
+
+\begin{itemize}
+\item The goalkeeper cannot \emph{reach}, but can \emph{intercept }with a modification of +20, like with a \emph{pass }(\emph{high-pass or low-pass})\emph{.}
+\item The attacker may choose to use the \emph{lob} skill instead. In this case, the \emph{shot} is like a \emph{high-pass}, independently of the distance.
+\end{itemize}
+
+\textbf{}\textbf{Note}\textbf{:} Outside the penalty area, there is no difference between a goalkeeper and a defender\textbf{.}
+
+\subsubsection{Post}
+
+\begin{itemize}
+\item If the result of a shooting action equals the difficulty, the ball hits the post.
+\item The direction of the \emph{rebound }is determined by a D8 dice roll.
+\item If the rebound goes back to the field, normal play resumes and both teams can contest for the ball.
+\item If the rebound goes inside the goal, the goalkeeper must perform a \emph{reach} action and, if successful, a \emph{catch} action to avoid a goal.
+\end{itemize}
+
+\subsubsection{\textbf{Penalty}}
+
+\begin{itemize}
+\item A \emph{penalty }is resolved as a regular\emph{ shot-at-goal }from the penalty spot using the \emph{penalty }skill.
+\item The player taking the penalty can choose one of the two possible cells behind the penalty spot to shoot from.
+\end{itemize}
+
+\subsubsection{\textbf{Effects}}
+
+\begin{itemize}
+\item A player can declare if a shot will have an \emph{effect} (a curved trajectory) during the action resolution phase.
+\item The \emph{effect }action must be resolved before resolving the \emph{shooting }action.\bigskip\hrule\bigskip
+\end{itemize}
+
+\section{\textbf{Game Actions}}
+
+\subsection{\textbf{One-on-One Actions}}
+
+\subsubsection{To Dribbl\textbf{e}}
+
+It is overtaking an opponent without losing possession of the ball.
+
+\begin{itemize}
+\item If one or more defenders are within the reach zone of the attacker, the latter must \emph{dribble }to continue the movement during the movement phase.
+\item The attacker's \emph{dribble }result must beat all the defender's \emph{tackle }results (or \emph{hand tackle} in the case of the goalkeeper being within his box) with the same dice roll.
+\item The goalkeeper has a modifier of +20 to the skill of \emph{hand-tackling} within his box.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The attacker overtakes the defender.
+\item The pawns' positions must be swapped.
+\item The defender will lose half of the movement points during this turn.
+\item If, after swapping the pawns' positions, another defender is within the reach zone of the attacker, the attacker can dribble the defender or the defender can tackle the attacker in the same turn.
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The attacker loses possession of the ball in favor of the defender.
+\item The pawns' positions must be swapped
+\item The attacker loses half of the movement points during this turn.
+\end{itemize}
+
+\textbf{[Goal]}\textbf{Hint}: The pawn can be laid down to indicate that its movement is halved for this turn.
+
+\subsubsection{To Feint}
+
+It prevents a defender from taking control of the ball without overtaking him.
+
+\begin{itemize}
+\item If one or more defenders are within the reach zone of the attacker, the latter must \emph{feint }to pass the ball or avoid being tackled.
+\item The attacker's \emph{feint }result must beat all the defenders' \emph{tackle }results.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The attacker avoids the tackle and can pass the ball.
+\item The defender loses half of the movement points during this turn.
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The attacker loses possession of the ball in favor of the defender.
+\item The attacker loses half of the movement points during this turn.
+\end{itemize}
+
+\textbf{[Goal]}\textbf{ Hint}: the pawn can be laid down to indicate that its movement is halved for this turn.
+
+\subsubsection{To T\textbf{ackle}}
+
+It is a defender trying to steal the ball from an attacker.
+
+\begin{itemize}
+\item A defender can \emph{tackle} if he is within the reach zone of the attacker with the possession of the ball.
+\item The goalkeeper can \emph{tackle} inside his box with a modification of +20.
+\item The defender's \emph{tackle }result must beat the attacker's \emph{feint }result.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The defender takes control of the ball.
+\item The pawns' positions must be swapped.
+\item The attacker loses half of the movement points during this turn.
+\end{itemize}
+
+\textbf{Failure:}
+
+\begin{itemize}
+\item The defender does not take control of the ball.
+\item The defender loses half of the movement points during this turn.
+\end{itemize}
+
+\textbf{[Goal]}\textbf{ Hint}: The pawn can be laid down to indicate that its movement is halved for this turn.
+
+\subsubsection{To S\textbf{lip}}
+
+It is an attacker trying to overcome a defender's mark. It is equivalent to dribbling without possession.
+
+\begin{itemize}
+\item An attacker without possession of the ball can try to \emph{slip }if a defender is within his reach zone.
+\item The attacker's \emph{slip }result must beat the defender's \emph{mark }result.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The attacker dodges the defender's mark.
+\item The pawns' positions must be swapped
+\item The defender loses half of the movement points during this turn.
+\item The defender cannot take another action during this turn.
+\end{itemize}
+
+\textbf{Failure:}
+
+\begin{itemize}
+\item The attacker fails to dodge the defender's mark.
+\item The attacker loses half of the movement points during this turn.
+\end{itemize}
+
+\textbf{[Goal]}\textbf{ Hint}: To indicate that the movement is halved for this turn, lay the pawn down on the board.
+
+\subsubsection{\textbf{To Intercept}}
+
+It is intercepting the ball by a defender in a pass or shot.
+
+\begin{itemize}
+\item A \emph{low-pass} or a \emph{shot-at-goal} can be intercepted if the trajectory of the ball as a straight line goes through the \emph{reach zone} of the defender.
+\item A \emph{high-pass} can be intercepted only if the defender is 2 yards or fewer from the attacker (see figure 4).
+\end{itemize}
+
+\RulebookImage{images/image12.png}
+
+\RulebookImage{images/image19.png}
+
+\RulebookImage{images/image6.png}
+
+\emph{If the destination of the pass is in one of the red cells, the pass may be intercepted by the defender.}
+
+\begin{itemize}
+\item The defender's \emph{intercept }result has to overcome the pass or shot score.
+\item The goalkeeper can \emph{intercept} inside his box with a modification of +20.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The ball is intercepted by the defender and he gains possession of the ball.
+\end{itemize}
+
+\textbf{Failure:}
+
+\begin{itemize}
+\item The ball is not intercepted by the defender.
+\end{itemize}
+
+\bigskip\hrule\bigskip
+
+\subsection{Passing Actions}
+
+\subsubsection{To\textbf{ Pass}}
+
+It is to give the ball to another footballer using a shot.
+
+\begin{itemize}
+\item An attacker who wants to pass the ball has to resolve a \emph{low-pass} or \emph{high-pass} action depending on the length of the pass.
+\item The action score has to be equal to or higher than the length L of the pass.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The receiver of the pass gets possession of the ball.
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The ball does not reach the desired position.
+\item The ball falls \textbf{E = (}\textbf{L}\textbf{ -- }\textbf{A)/2} yards away from the desired position.
+\item To determine the direction of the error a D8 dice roll is used (Figure 3).
+\end{itemize}
+
+\subsubsection{\textbf{Goal-kick}}
+
+\begin{itemize}
+\item The goal-kick action is used when the goalkeeper performs any long pass in his penalty area, even though the action is not a goal kick strictly speaking.
+\item A goal-kick action is resolved in the same way as a pass using the goal-kick skill.
+\end{itemize}
+
+\subsubsection{Defensive Header}
+
+A \emph{defensive header} is an action by which a defender deflects a pass or corner-kick of the attacking team using a header, in general in the direction of a teammate.
+
+\begin{itemize}
+\item It is a one-touch action that can be performed after a high pass (long pass or corner).
+\item The action score has to be equal to or higher than triple the length (3L) of the pass.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The receiver of the pass gets possession of the ball.
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The ball does not reach the desired position.
+\item The ball falls \textbf{E = (3L -- A)/3} yards away from the desired position.
+\item To determine the direction of the error a D8 dice roll is used like in a regular pass.
+\end{itemize}
+
+\subsubsection{\textbf{To Throw-in}}
+
+It is the action of restarting the game from the touchline using a pass with the hands.
+
+\begin{itemize}
+\item After an out, the team with possession of the ball will restart the game with a throw-in action.
+\item The action score has to be equal to or higher than double the length (2L) of the pass.
+\item A t\emph{hrow-in} pass is equivalent to a \emph{high-pass} without minimum distance.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The receiver of the pass gets possession of the ball.
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The ball does not reach the desired position.
+\item The ball falls \textbf{E = (2L -- A)/2} yards away from the desired position.
+\item To determine the direction of the error an 8-sided dice roll is used like in a regular pass.
+\end{itemize}
+
+\subsubsection{\textbf{Hand-pass}}
+
+It is the action of the goalkeeper to pass the ball to a teammate using his hands.
+
+\begin{itemize}
+\item The goalkeeper can pass the ball to a teammate using his hands inside his box.
+\item The result of the action has to be equal to or higher than double the length (2L) of the pass.
+\end{itemize}
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The receiver of the pass gets possession of the ball.
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The ball does not reach the desired position.
+\item The ball falls \textbf{E = (2L -- A)/2} yards away from the desired position.
+\item To determine the direction of the error an 8-sided dice roll is used like in a regular pass.
+\end{itemize}
+
+\bigskip\hrule\bigskip
+
+\subsection{\textbf{Shooting Actions}}
+
+\subsubsection{S\textbf{hot at Goal}}
+
+\subparagraph{It is kicking the ball against the opponent's goal when the ball is already in play.}
+
+\paragraph{Shot placement}
+
+\begin{itemize}
+\item The attacker must overcome the difficulty \emph{D} of the shot, which is given by the printed values in each cell of the grid. It is not possible to \emph{shoot-at-goal} from one's side of the field.
+\end{itemize}
+
+\textbf{Success: }The ball goes between the goal limits, and a \emph{target} position must be determined.
+
+\begin{itemize}
+\item The goal target is divided into a vertical grid of 3x8 targets. The action result\emph{ R} determines the possible goal targets. The difference between the action score \emph{A} and the difficulty of the shot \emph{D gives it}.
+\end{itemize}
+
+\textbf{R = A-D}
+
+\begin{itemize}
+\item The ball can be placed at a target with a maximum distance \textbf{R}\textbf{/5} from the point of the goal line closest to the attacker (\emph{closest target}). The attacker can decide on any closer target depending on the goalkeeper's position.
+\end{itemize}
+
+\textbf{[Goal]}\textbf{ Hint}: You can use the last row of the grid of the field and the grid inside the goal as a reference.
+
+\RulebookImage{images/image16.png}
+
+\emph{The ball can be placed at a target R/5 cells from the closest target from the attacker (dashed circle in this example). This is, the ball can be displaced 5 points per cell until all action points R have been exhausted. The attacker can decide on any other closer target depending on the goalkeeper's position.}
+
+\RulebookImage{images/image14.png}
+
+\textbf{\emph{For example}}\emph{, if the attacker is shooting from the left and the closest target is the dashed circle and the action result is R=18, the attacker can choose any target in green with a target threshold lower than R. The target thresholds are given by their distance from the closest target at a rate of 5 points per cell. A wise attacker will choose a target far from the goalkeeper position. Remember, that the position of the goalkeeper is relevant to the gameplay.}
+
+\textbf{Draw: }
+
+\begin{itemize}
+\item The ball hits the post
+\item The direction of the \emph{rebound }is determined by a D8 dice roll:
+\end{itemize}
+
+\begin{itemize}
+\item D8=[1, 3]: the rebound goes back to the field
+\item D8=[4, 5]: the rebound goes outside the field
+\item D8=[6, 8]: the rebound goes towards the goal
+\end{itemize}
+
+\begin{itemize}
+\item If the \emph{rebound }goes towards the goal, the goalkeeper has to \emph{reach }(and \emph{catch}) the ball. The \emph{target }position is determined by the D8 dice roll value, respect to the \emph{closest target} (see Figure 8):
+\end{itemize}
+
+\RulebookImage{images/image8.png}
+
+\emph{For example, if the closest target is the dashed circle and the D}\emph{8}\emph{ dice roll equals 8, the target placement is the cell indicated by the ball.}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The ball goes out of the field, \emph{E= }(\emph{D-A)/2} yards from the closest goal target.
+\item The opponent's goalkeeper must put the ball in play through a \emph{goal-kick} action.
+\end{itemize}
+
+\paragraph{\textbf{Shot power}}
+
+When a shot at goal is successful and the goalkeeper can reach the ball, the shot power is then compared to the result of the goalkeeper's \emph{catch }action to determine if he can catch or deflect the ball (see \emph{catch }action). If the goalkeeper cannot reach the ball, it is not necessary to determine the shot power, and a goal is scored. It is possible to roll the dice for simulation purposes, but this does not affect the result of the shot.
+
+\begin{itemize}
+\item To determine the shot power\emph{,} the\emph{ shot power} skill \emph{S} is used.
+\item The \emph{shot-power} \emph{R} is calculated as:
+\end{itemize}
+
+\textbf{A = D}\textbf{100}\textbf{/100} \textperiodcentered{} \textbf{S}
+
+\textbf{R = A/100 \textperiodcentered{} (100 - D)}
+
+\begin{itemize}
+\item The \emph{shot-power }determines the difficulty that the goalkeeper has to overcome to catch the ball (see \emph{catch} section).
+\item If the ball hits the post, the result of the \emph{shot-power }determines the distance of the rebound.
+\end{itemize}
+
+\subsubsection{Effect}
+
+A shot-at-goal can have an \emph{effect}, that is, a curved trajectory.
+
+\begin{itemize}
+\item To determine the amount of effect, the \emph{effect }skill is used.
+\item The action result \emph{R} is the action score \emph{A} divided by 100 times half of the distance L of the \emph{shot}:
+\end{itemize}
+
+\textbf{R}\textbf{X}\textbf{ = }\textbf{A/100 \textperiodcentered{} L}\textbf{X}\textbf{/2}
+
+\textbf{R}\textbf{Y}\textbf{ = }\textbf{A/100 \textperiodcentered{} L}\textbf{y}\textbf{/2}
+
+where (RX, Ry) and (Lx, Ly) are the x and y components of the distances R and L. x is the component in the direction of the long axis of the field and y is the component in the direction of the short axis of the field.
+
+\begin{itemize}
+\item A shot with an \emph{effect }is resolved as if the shot is performed from a \emph{virtual }position which is at a distance R from the original position, moving \emph{orthogonally }to the straight trajectory of the shot (see Figure 9 for an example). The difficulty of the shot will be the one of the \emph{virtual }position. The \emph{shot-powe}r is also calculated from the \emph{virtual }position.
+\item In a \emph{free-kick} with a wall, if the straight trajectory from the \emph{virtual }position does not intersect the wall, the wall has no effect.
+\item If there are defenders in the reach zone of the attacker, the defender's actions (including \emph{intercept}) have to be resolved from the original position.
+\end{itemize}
+
+\textbf{}\textbf{Note:} defenders in the reach zone of the virtual position cannot intercept the ball.
+
+\textbf{[Goal]}\textbf{ Hint}: to perform an \emph{orthogonal move} (x, y), swap x and y components and invert the direction of one of the two components. Two possible directions can be freely chosen: (-y, x) or (y, -x).
+
+\RulebookImage{images/image5.png}
+
+\textbf{\emph{For example}}\emph{. The shot follows a curved trajectory towards the goal at a distance L = (22, 9). Considering A=100, the effect is 100\% of L/2, resulting in R = (11, 4). The two possible virtual positions are at a distance R moving orthogonally, this is (-4, 11) or (4, -11).}
+
+\subsubsection{\textbf{Penalty}}
+
+\begin{itemize}
+\item A \emph{penalty} kick is conceded if a foul (voluntary or not) occurs in the opponent's penalty area.
+\item A \emph{penalty} is resolved as a shot from the penalty point using the skill \emph{penalty}.
+\end{itemize}
+
+\subsubsection{Free-\textbf{kick}}
+
+\begin{itemize}
+\item A \emph{free-kick} is resolved as a shoot using the \emph{free-kick} skill.
+\item In a \emph{free-kick}, the attacking player places their footballers first, followed by the defending player.
+\item The defending player can place a wall of defenders at a minimum distance of 10 yards.
+\item There is no limit on the \emph{number of wall defenders }(Nwall)\emph{.}
+\item Only a maximum of wall defenders are effective, depending on the apparent size of the goal from the shooting position. The \emph{maximum effective wall defenders} is given by the shot difficulty (the value in the grid cell):
+\end{itemize}
+
+\textbf{Maximum effective wall defenders }\textbf{(N}\textbf{eff}\textbf{)}\textbf{:}
+
+\begin{itemize}
+\item Shot difficulty = [01,  \textbf{20]} $\rightarrow$ \textbf{5}
+\item Shot difficulty = [21,  \textbf{25]} $\rightarrow$ \textbf{4}
+\item Shot difficulty = [26,  \textbf{33] }$\rightarrow$ \textbf{3}
+\item Shot difficulty = [34,  \textbf{50]} $\rightarrow$ \textbf{2}
+\item Shot difficulty = [51, \textbf{100]} $\rightarrow$ \textbf{1}
+\end{itemize}
+
+\textbf{}\textbf{Note:} note that 20 = 100/5, 25 = 100/4, 33 = 100/3 and 50 = 100/2.
+
+\begin{itemize}
+\item The \emph{difficulty of the free-kick} \emph{D} is the sum of the \emph{difficulty of the shot} \emph{D}\emph{shot} plus the \emph{difficulty of the wall} \emph{D}\emph{wall}.
+\end{itemize}
+
+D = Dshot + Dwall
+
+\textbf{[Search]}\textbf{Special case}: if the shot has an \emph{effect }that overcomes the wall \emph{D}\emph{wall }= 0.
+
+\begin{itemize}
+\item The difficulty of the wall \emph{D}\emph{wall} is equal to:
+\end{itemize}
+
+Dwall=20\textperiodcentered{}min(Nwall, Neff)/Neff
+
+\textbf{}\textbf{Note:} placing fewer wall defenders than the \emph{maximum effective wall defenders} reduces the effectiveness of the defensive wall.
+
+\textbf{}\textbf{Note}: if there are more wall defenders than the \emph{maximum} \emph{number of effective wall defenders}, the excess of wall defenders is useless, unless the shot has an \emph{effect} or in case of an indirect kick.
+
+\textbf{}\textbf{Note}: if the attacker places footballers at the wall position, they similarly count as defenders at the wall.
+
+\textbf{Success: }
+
+\begin{itemize}
+\item If the result is \textbf{higher }than the \emph{difficulty of the free-kick} the action is resolved as a \emph{shot }to goal with the modified difficulty of the \emph{free-kick}.
+\end{itemize}
+
+\textbf{Draw: }
+
+\begin{itemize}
+\item If the result is \textbf{equal }to the \emph{difficulty of the free-kick}, then the ball hits the post (see \emph{shot }to resolve the post situation).
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item If the result is \textbf{lower }than the \emph{difficulty of the free-kick} but \textbf{higher or equal }to the \emph{difficulty of the shot}, then the ball hits the wall. The situation is resolved as a failed \emph{pass} to determine the ball's final position.
+\item If the result is \textbf{lower }than the \emph{difficulty of the shot}, then the ball gets out of the pitch.
+\end{itemize}
+
+\subsubsection{F\textbf{inish}}
+
+\begin{itemize}
+\item A finish is a \emph{one-touch} action and it is resolved in the same turn when the \emph{pass }is performed.
+\item It is resolved as a \emph{shot at goal} with the \emph{finish }skill.
+\end{itemize}
+
+\subsubsection{\textbf{Scissors-kick}}
+
+\begin{itemize}
+\item A \emph{scissors-kick} can only be performed after a \emph{long pass},
+\item A \emph{scissors-kick} is a \emph{one-touch} action and it is resolved in the same turn when the \emph{long pass }is finished.
+\item It has a modifier of \textbf{+20} to the difficulty of the \emph{shot}.
+\end{itemize}
+
+\subsubsection{Offensive H\textbf{eader}}
+
+\begin{itemize}
+\item An \emph{offensive header} can only be performed after a \emph{long pass}.
+\item An \emph{offensive header} is a \emph{one-touch} action, and it is resolved in the same turn when the \emph{long pass }is finished.
+\item It is resolved as a \emph{shot }but considering the \textbf{double }of the shot difficulty.
+\item In this case, the \emph{shot power} is calculated using the \emph{header power} skill.
+\end{itemize}
+
+\bigskip\hrule\bigskip
+
+\subsection{\textbf{Goalkeeper's Actions}}
+
+\subsubsection{\textbf{To Reach}}
+
+Upon a successful shooting, the goalkeeper has to \emph{reach }the ball to be able to \emph{catch }it and prevent a goal.
+
+\begin{itemize}
+\item The \emph{reach }skill is used\emph{.}
+\item The goalkeeper must overcome or equal \textbf{x10 }the distance L between the goalkeeper and the \emph{target} positions.
+\end{itemize}
+
+\textbf{[Search]}\textbf{Special case:} if the defender of the goal is not the goalkeeper but another defender:
+
+\begin{itemize}
+\item The \emph{intercept} skill is used.
+\item The defender must overcome or equal \textbf{x33 }the distance L between the defender and the \emph{target} positions.
+\end{itemize}
+
+\textbf{}\textbf{\emph{Note}}\emph{:} the goalkeeper's position is critical to the gameplay!
+
+\RulebookImage{images/image7.png}
+
+\emph{The difficulty of reaching the ball is 10 times the distance between the goalkeeper and the target position (in this example 70). }
+
+\textbf{Success: }
+
+\begin{itemize}
+\item The goalkeeper reaches the ball and can try to catch the ball.
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The goalkeeper does not reach the ball and a goal is scored.
+\end{itemize}
+
+\subsubsection{To Catch}
+
+Upon reaching the ball, the goalkeeper can try to catch or deflect the ball.
+
+\begin{itemize}
+\item The \emph{catch }skill is used.
+\item The goalkeeper has to overcome or equal the \emph{shot-power} or \emph{header-power}.
+\end{itemize}
+
+\textbf{Success:}
+
+\begin{itemize}
+\item If the \emph{catch }result is \textbf{higher or equal }to \textbf{x2 }the \emph{shot} or \emph{header power}, the goalkeeper catches the ball and gains possession of the ball.
+\item If the \emph{catch }result is \textbf{higher or equal} to the \emph{shot} or \emph{header power} but \textbf{lower }than \textbf{x2} the \emph{shot} or \emph{header power}, the goalkeeper deflects the ball which goes out of the pitch. A \emph{corner }action has to be resolved.
+\end{itemize}
+
+\textbf{Failure: }
+
+\begin{itemize}
+\item The goalkeeper cannot catch the ball and a goal is scored.\bigskip\hrule\bigskip
+\end{itemize}
+
+\subsection{Actions Cheat Sheet}
+
+\textbf{D}\textbf{100 }\textbf{= Dice roll over 100                                                                          }\textbf{Directions (D}\textbf{8}\textbf{)}
+
+\textbf{S = skill                                                                                               }
+
+\textbf{V = velocity skill                                                                                         Opponent's side}
+
+\textbf{A = action score}\RulebookInlineImage{images/image10.png}
+
+\textbf{D = action difficulty}
+
+\textbf{D}\textbf{shot }\textbf{= difficulty of the shot (grid cell value)}
+
+\textbf{R = action result}
+
+\textbf{E = action error}
+
+\textbf{L = manhattan distance (in yards or cells)}
+
+\textbf{GK = goalkeeper}
+
+\textbf{x = component in the long-axis direction of the field}
+
+\textbf{y = component in the short-axis direction of the field}
+
+\textbf{(1)}\textbf{ = }\textbf{\emph{one-touch}}\textbf{ action (resolved in the same turn as the }\textbf{\emph{pass}}\textbf{) }
+
+\textbf{(L)}\textbf{\emph{ = }}\textbf{from a }\textbf{\emph{low-pass}}\textbf{ only                                                                                                     Own's side}
+
+\textbf{(H)}\textbf{\emph{ = }}\textbf{from a }\textbf{\emph{high-pass}}\textbf{ only}
+
+\textbf{Action score: A = D}\textbf{100}\textbf{/100} \textperiodcentered{} \textbf{S}
+
+\begin{itemize}
+\item \textbf{D}\textbf{100} \textbf{= 0 $\rightarrow$ potential injury (D=101-}\textbf{\emph{Strength}}\textbf{)}
+\item \textbf{D}\textbf{100 }\textbf{= [1, 9] $\rightarrow$ foul (only in }\textbf{\emph{one-on-one}}\textbf{ actions)}
+\item \textbf{All operations are rounded to the nearest integer}
+\end{itemize}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Action} & \textbf{Difficulty} & \textbf{Result} & \textbf{Interpretation} \\
+\hline
+\textbf{Dribble} & \textbf{D = A}\textbf{tackle/hand-tackle} \textbf{Hand-tackle: S + 20} & \textbf{A > D $\rightarrow$ success} \textbf{A = D $\rightarrow$ draw} \textbf{A < D $\rightarrow$ failure} & \textbf{Swap, defender's V/2} \textbf{Repeat} \textbf{Swap, attacker's V/2} \\
+\hline
+\textbf{Feint} & \textbf{D = A}\textbf{tackle/hand-tackleç} \textbf{Hand-tackle: S + 20} & \textbf{A > D $\rightarrow$ success} \textbf{A = D $\rightarrow$ draw} \textbf{A < D $\rightarrow$ failure} & \textbf{Swap, defender's V/2} \textbf{Repeat} \textbf{Swap, attacker's V/2} \\
+\hline
+\textbf{Tackle} & \textbf{D = A}\textbf{feint} & \textbf{A > D $\rightarrow$ success} \textbf{A = D $\rightarrow$ draw} \textbf{A < D $\rightarrow$ failure} & \textbf{Swap, defender's V/2} \textbf{Repeat} \textbf{Swap, attacker's V/2} \\
+\hline
+\textbf{Slip} & \textbf{D = A}\textbf{mark} & \textbf{A > D $\rightarrow$ success} \textbf{A = D $\rightarrow$ draw} \textbf{A < D $\rightarrow$ failure} & \textbf{Swap, defender's V/2} \textbf{Repeat} \textbf{Swap, attacker's V/2} \\
+\hline
+\textbf{Intercept} & \textbf{D = A}\textbf{shot/pass } & \textbf{A $\geq$ D $\rightarrow$ success} \textbf{A < D $\rightarrow$ failure} & \textbf{See shot or pass} \\
+\hline
+\textbf{Low-pass ($\leq$ 30)}\textbf{(1)} & \textbf{D = L} & \textbf{Success distance:} \textbf{S}\textbf{low-pass}\textbf{ = 50 $\rightarrow$ 5 y} \textbf{S}\textbf{low-pass}\textbf{ = 60 $\rightarrow$ 10 y} \textbf{S}\textbf{low-pass}\textbf{ = 70 $\rightarrow$ 15 y} \textbf{S}\textbf{low-pass}\textbf{ = 80 $\rightarrow$ 20 y} \textbf{S}\textbf{low-pass}\textbf{ = 90 $\rightarrow$ 25 y} \textbf{S}\textbf{low-pass}\textbf{ = 100 $\rightarrow$ 30 y} \textbf{Otherwise:} \textbf{A $\geq$ D $\rightarrow$ success} \textbf{A < D $\rightarrow$ error} \textbf{E = (D -- A)/2} & \textbf{Error direction $\rightarrow$ D}\textbf{8} \\
+\hline
+\textbf{High-pass (> 30)} \textbf{Goal-kick} & \textbf{D = L} & \textbf{A $\geq$ D $\rightarrow$ success} \textbf{A < D $\rightarrow$ error} \textbf{E = (D -- A)/2} & \textbf{Error direction $\rightarrow$ D}\textbf{8} \\
+\hline
+\textbf{Throw-in} \textbf{Hand-pass} & \textbf{D = 2\textperiodcentered{}L} & \textbf{A $\geq$ D $\rightarrow$ success} \textbf{A < D $\rightarrow$ error} \textbf{E = (D -- A)/2} & \textbf{Error direction $\rightarrow$ D}\textbf{8} \\
+\hline
+\textbf{Shot} \textbf{Penalty} \textbf{Finish }\textbf{(1)(L)} \textbf{Scissors-kick }\textbf{(1) (H)} \textbf{Offensive header }\textbf{(1) (H)} & \textbf{D = D}\textbf{shot } \textbf{Scissors-kick: } \textbf{D = D}\textbf{shot}\textbf{ + 20} \textbf{Offensive header:} \textbf{D = 2\textperiodcentered{}D}\textbf{shot} & \textbf{Shot placement:} \textbf{A > D $\rightarrow$ GK reach?} \textbf{A = D $\rightarrow$ Post} \textbf{A < D $\rightarrow$ Out} \textbf{Target displacement:} \textbf{R = A-D} \textbf{Shot/header power:} \textbf{R = A/100 \textperiodcentered{} (100 - D)} & \textbf{Displacement: R/5 cells }from \emph{closest} target\RulebookInlineImage[0.18\textwidth]{images/image16.png} \textbf{Post: Direction $\rightarrow$ D}\textbf{8} D8=[1,3]: back to field D8=[4,5]: outside of field D8=[6,8]: towards goal \RulebookInlineImage[0.18\textwidth]{images/image8.png} \\
+\hline
+\textbf{Free-kick} & \textbf{D = D}\textbf{shot}\textbf{ + D}\textbf{wall} \RulebookInlineImage[0.18\textwidth]{images/image1.png} \RulebookInlineImage[0.18\textwidth]{images/image2.png} \textbf{: }\textbf{wall defenders} \RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{: }\textbf{effective wall defenders} \textbf{D}\textbf{shot}\textbf{= [0}\textbf{1, 20] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 5 } \textbf{D}\textbf{shot}\textbf{= [}\textbf{21, 25] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 4} \textbf{D}\textbf{shot}\textbf{= [}\textbf{26, 33] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 3 } \textbf{D}\textbf{shot}\textbf{=}\textbf{ [34, 50] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 2} \textbf{D}\textbf{shot}\textbf{= [}\textbf{51, 100] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 1} & \textbf{Shot placement:} \textbf{A > D $\rightarrow$ GK reach?} \textbf{A = D $\rightarrow$ Post} \textbf{A < D and:} \textbf{ A $\geq$ D}\textbf{shot}\textbf{$\rightarrow$ Wall} \textbf{ A < D}\textbf{shot}\textbf{ $\rightarrow$ Out} \textbf{Target displacement:} \textbf{R = A-D} \textbf{Shot power:} \textbf{R = A/100 \textperiodcentered{} (100 - D)} & \textbf{See shot} \textbf{A hit to the wall is resolved as a failed }\textbf{\emph{pass}} \\
+\hline
+\textbf{Effect} & \textbf{D = L/2} & \textbf{Displacement:} \textbf{R}\textbf{X}\textbf{ = A/100 \textperiodcentered{} L}\textbf{X}\textbf{/2} \textbf{R}\textbf{Y}\textbf{ = A/100 \textperiodcentered{} L}\textbf{Y}\textbf{/2 } & \textbf{Original position:} \textbf{ (O}\textbf{x}\textbf{, O}\textbf{y}\textbf{)} \textbf{Virtual positions:} \textbf{(O}\textbf{x}\textbf{-R}\textbf{y}\textbf{, O}\textbf{y}\textbf{+R}\textbf{x}\textbf{) or} \textbf{(O}\textbf{x}\textbf{+}\textbf{R}\textbf{y}\textbf{, O}\textbf{y}\textbf{-}\textbf{R}\textbf{x}\textbf{)} \\
+\hline
+\textbf{Reach} & \textbf{GK: D = 10\textperiodcentered{}L} \textbf{Defender: D = 33\textperiodcentered{}L} \textbf{L = distance from GK to target} & \textbf{A $\geq$ D $\rightarrow$ GK catch?} \textbf{A < D $\rightarrow$ goal} & \RulebookInlineImage[0.18\textwidth]{images/image7.png} \\
+\hline
+\textbf{Catch} & \textbf{D = 2\textperiodcentered{}shot/header power} & \textbf{ A $\geq$ 2\textperiodcentered{}D $\rightarrow$ catch } \textbf{D $\leq$ A < 2\textperiodcentered{}D $\rightarrow$ corner} \textbf{ A < D $\rightarrow$ goal} &  \\
+\hline
+\end{tabular}
+
+
+\end{document}
