@@ -5,12 +5,16 @@
 \usepackage{hyperref}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{fontawesome}
 \usepackage{tgheros}
 \renewcommand{\familydefault}{\sfdefault}
 \geometry{margin=1in}
 \setlist{leftmargin=*}
 \setlength{\parskip}{0.75em}
 \setlength{\parindent}{0pt}
+\newcommand{\HintIcon}{\faLightbulbO}
+\newcommand{\NoteIcon}{\ding{47}}
 \newcommand{\RulebookImage}[2][0.55\textwidth]{%
   \begin{figure}[h]
     \centering
@@ -41,25 +45,28 @@
 \href{https://www.google.com/url?q=https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode&sa=D&source=editors&ust=1763256892399332&usg=AOvVaw1kUUHriWW4eqgoNTEEr9D4}{Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)}
 \end{titlepage}
 
+\clearpage
+\clearpage
+\clearpage
 \section{\textbf{The Game}}
 
 Footroll is a turn-based football (soccer) simulation board game designed for two players, offering a highly realistic gameplay experience. By combining a comprehensive set of rules, unique skill sets, and dice rolls, the game meticulously reproduces a wide range of football match scenarios. Footroll emphasizes the importance of tactics, player positioning, and playing styles in the game's development. Players resolve actions through dice rolls and straightforward calculations, easily performed with a regular calculator. This intricate yet accessible system ensures that each match is both strategic and engaging.
 
-\subsubsection{\textbf{How to Learn These Rules}}
+\subsection{\textbf{How to Learn These Rules}}
 
 The learning curve for Footroll can be steep as this ruleset must comprehensively resolve all situations without ambiguity. The most effective way to learn the game is to read the "Game Mechanics" ruleset and then play test games, even if the rules are not fully assimilated. Players can learn how to resolve different situations and game actions, as described in "Game Actions," as they occur during these test games.
 
- \textbf{Note}: the most complex situation to resolve in Footroll is a shot at goal as a direct free-kick with an effect and a wall of defenders.
+ \NoteIcon\ \textbf{Note}: the most complex situation to resolve in Footroll is a shot at goal as a direct free-kick with an effect and a wall of defenders.
 
-\textbf{The Football Rules}
+\subsection{\textbf{The Football Rules}}
 
 Footroll follows the official FIFA rules for football, unless otherwise specified in the game's ruleset.
 
-\textbf{Winning Conditions}
+\subsection{\textbf{Winning Conditions}}
 
 Footroll is a turn-based game with no time limit. The match ends when a specified number of goals are scored.
 
-\textbf{}\textbf{Note: }A consequence of this rule is that the game is not divided into two halves.
+\textbf{}\NoteIcon\ \textbf{Note: }A consequence of this rule is that the game is not divided into two halves.
 
 The winning conditions can vary:
 
@@ -110,7 +117,7 @@ The winning conditions can vary:
 \item One side scores 2 goals more than the opponent or a total of 6 goals are scored: 2-0, 3-1, 4-2, 3-3
 \end{itemize}
 
-\subsubsection{\textbf{The Pitch}}
+\subsection{\textbf{The Pitch}}
 
 The game is played on a board (the pitch) according to the FIFA rules scaled to 1 yard: 1 cell. The pitch must have the lines of an official football pitch visible. Additionally, the pitch must have a grid of cells of 1 yard with a line width smaller than the regular lines. The grid is used to move the footballers and to calculate distances. A footballer occupies one cell of the grid, and it can only move within the grid cells. The grid includes a value for each cell that is used to calculate the difficulty of shooting at the goal from that position.
 
@@ -130,13 +137,13 @@ Some game actions require the measurement of distances. All distances are measur
 
 A manhattan distance has two components (x, y). \emph{x }corresponds to the component in the direction of the long axis of the football field and \emph{y }corresponds to the component in the direction of the short axis of the football field.
 
-\subsubsection{The Pawns}
+\subsection{The Pawns}
 
 Each player has as many pawns as footballers in the team. The pawns must fit one cell of the grid. The pawns are the same color and different from the opponent's figures. The pawns have the number that uniquely identifies the footballer.
 
 The ball is represented by a special figure. The ball's position indicates which footballer possesses the ball but is not relevant to the gameplay. Only the position of the footballer is taken into account when measuring distances or considering positions.
 
-\subsubsection{\textbf{The Skills}}
+\subsection{\textbf{The Skills}}
 
 Each player has a skills table that describes the skills of the team's footballers. The teams can be real or fictitious. The skills are scored over 100 in multiples of 10. Footroll does not specify the footballer's score. As a reference, the following values can be used for a top-line professional team:
 
@@ -190,7 +197,7 @@ The scored skills are the following:
 \item \textbf{Velocity:} the running speed of a footballer.
 \end{itemize}
 
-\subsubsection{\textbf{The Dice}}
+\subsection{\textbf{The Dice}}
 
 \paragraph{Dice Roll Over 100 (D100\textbf{)}}
 
@@ -286,7 +293,7 @@ The outcome of some actions only depends on the skill of the footballer. In thes
 
 \textbf{ D = 101 - S}
 
-\textbf{}\textbf{Note}\textbf{: }101 guarantees a chance of failure, even with skill value 100.
+\textbf{}\NoteIcon\ \textbf{Note}\textbf{: }101 guarantees a chance of failure, even with skill value 100.
 
 \textbf{One-on-One Actions}
 
@@ -300,23 +307,25 @@ The player who gets a higher action score wins. In case of a draw, the dice roll
 
 In certain circumstances, some actions have modifiers that add to the difficulty \emph{D}.
 
-\subsubsection{Reach Zone}
+\subsection{Reach Zone}
 
 Some actions can only be executed if the ball or an opponent is within the \emph{reach zone} of the footballer. The \emph{reach zone} of a footballer is defined as one square yard around him (1 cell of the grid).\bigskip\hrule\bigskip
 
+\clearpage
+\clearpage
 \section{\textbf{Game Mechanics}}
 
-\subsubsection{Start of The Game}
+\subsection{Start of The Game}
 
 A D100 dice roll determines the first possession of the ball. The player who rolls the highest number wins the roll and starts the game. Afterward, both teams place their footballers on their side of the field following their preferred tactic distribution. The player starting the game must place a footballer in the center spot together with the ball.
 
-\textbf{}\textbf{Note: }Note that since there is no second-half, winning the ball at the start of the game gives you some gaming advantage.
+\textbf{}\NoteIcon\ \textbf{Note: }Note that since there is no second-half, winning the ball at the start of the game gives you some gaming advantage.
 
-\subsubsection{Kick-Off}
+\subsection{Kick-Off}
 
 A \emph{kick-off }happens at the start of the game and after a goal is scored.
 
-\subsubsection{\textbf{Restart of The Game}}
+\subsection{\textbf{Restart of The Game}}
 
 When the game restarts, the placement of the footballers follows these rules:
 
@@ -326,11 +335,11 @@ When the game restarts, the placement of the footballers follows these rules:
 
 \textbf{[Search]}\textbf{Special case}: If, after placing the footballers of the defending team, there are footballers of the attacking team in the offside position, the attacking player can reposition them to the closest point on the offside line. The defending team is not allowed to make further changes.
 
-\textbf{}\textbf{Note: }Place the goalkeeper at the last row of the field in front of the goal line.
+\textbf{}\NoteIcon\ \textbf{Note: }Place the goalkeeper at the last row of the field in front of the goal line.
 
-\textbf{}\textbf{Note: }This sequence applies to all restarts, including \emph{kick-off}, after an \emph{out }(\emph{throw-in}, \emph{corner-kick, goal-kick}) or after a \emph{foul} (\emph{free-kick}).
+\textbf{}\NoteIcon\ \textbf{Note: }This sequence applies to all restarts, including \emph{kick-off}, after an \emph{out }(\emph{throw-in}, \emph{corner-kick, goal-kick}) or after a \emph{foul} (\emph{free-kick}).
 
-\subsubsection{\textbf{Turn Phases}}
+\subsection{\textbf{Turn Phases}}
 
 The game is divided into turns, each consisting of two phases:
 
@@ -339,9 +348,9 @@ The game is divided into turns, each consisting of two phases:
 \item \textbf{Movement Phase: }After all actions have been resolved, the turn proceeds to the movement phase, where the ball and footballers move according to the actions' resolution.
 \end{itemize}
 
-\textbf{}\textbf{Note: }The action resolution phase does not imply the passage of time and all actions are considered to occur simultaneously.
+\textbf{}\NoteIcon\ \textbf{Note: }The action resolution phase does not imply the passage of time and all actions are considered to occur simultaneously.
 
-\textbf{}\textbf{Note:} an action resolved during the action resolution phase may imply the movement of the ball. The ball, however, does not move during the action resolution phase; but during the movement phase, simultaneously with the footballers.
+\textbf{}\NoteIcon\ \textbf{Note:} an action resolved during the action resolution phase may imply the movement of the ball. The ball, however, does not move during the action resolution phase; but during the movement phase, simultaneously with the footballers.
 
 \paragraph{Action Resolution Phase}
 
@@ -380,13 +389,13 @@ The game is divided into turns, each consisting of two phases:
 \item The movement phase begins with the ball's movement, either through a pass or by conduction.
 \end{enumerate}
 
-\textbf{}\textbf{Note:} the receiver of a pass cannot move with possession of the ball in the same turn when the ball is received, as the movement of the ball and footballers occur simultaneously and the ball cannot move further.
+\textbf{}\NoteIcon\ \textbf{Note:} the receiver of a pass cannot move with possession of the ball in the same turn when the ball is received, as the movement of the ball and footballers occur simultaneously and the ball cannot move further.
 
 \begin{itemize}
 \item The movement of the attacker possessing the ball is not blocked by the presence of a defender in its trajectory during the movement phase.
 \end{itemize}
 
-\textbf{}\textbf{Note:} A defender only blocks an attacker during the action resolution phase (see \emph{blocking} section). The rational for this is that the movement of the attacker and the defender occurs simultaneously, but it is resolved sequentially. A defender may prefer to retreat before being forced to tackle.
+\textbf{}\NoteIcon\ \textbf{Note:} A defender only blocks an attacker during the action resolution phase (see \emph{blocking} section). The rational for this is that the movement of the attacker and the defender occurs simultaneously, but it is resolved sequentially. A defender may prefer to retreat before being forced to tackle.
 
 \begin{enumerate}
 \item Following the ball's movement, the attacking team moves their footballers without possession.
@@ -415,7 +424,7 @@ The game is divided into turns, each consisting of two phases:
 
 \emph{Turn phases flowchart.}
 
-\subsubsection{\textbf{Blocking}}
+\subsection{\textbf{Blocking}}
 
 A defender blocks an attacker's action or movement if the attacker is within the defender's \emph{reach zone }during the action resolution phase. Here are the specific scenarios and their resolutions:
 
@@ -438,19 +447,19 @@ A defender blocks an attacker's action or movement if the attacker is within the
 \item The defender may attempt to \emph{tackle} to gain possession of the ball. The attacker must \emph{feint} to avoid being tackled.
 \end{itemize}
 
-\textbf{[Goal]}\textbf{Hint: }Be aware that blocking is an action that requires dice rolls. A failure can expose your defense, and there is the possibility of committing a foul. Block only when necessary.
+\textbf{[Goal]}\HintIcon\ \textbf{Hint: }Be aware that blocking is an action that requires dice rolls. A failure can expose your defense, and there is the possibility of committing a foul. Block only when necessary.
 
-\textbf{[Goal]}\textbf{Hint: }Place the defender one yard away from the attacker's position for a "vigilant" non-blocking defensive position.
+\textbf{[Goal]}\HintIcon\ \textbf{Hint: }Place the defender one yard away from the attacker's position for a "vigilant" non-blocking defensive position.
 
-\subsubsection{Passes}
+\subsection{Passes}
 
 \begin{itemize}
 \item A pass is performed towards a position, not necessarily where a footballer is present.
 \end{itemize}
 
-\textbf{}\textbf{Note:} A forward pass is possible, where the ball's movement anticipates the receiver's movement. An attacker can make a forward pass to themselves.
+\textbf{}\NoteIcon\ \textbf{Note:} A forward pass is possible, where the ball's movement anticipates the receiver's movement. An attacker can make a forward pass to themselves.
 
-\textbf{}\textbf{Note:} if a pass receiver has a defender in their \emph{reach zone} when they reach the ball, a \emph{challenged ball }must be resolved to determine who takes control (see \emph{challenged ball }section).
+\textbf{}\NoteIcon\ \textbf{Note:} if a pass receiver has a defender in their \emph{reach zone} when they reach the ball, a \emph{challenged ball }must be resolved to determine who takes control (see \emph{challenged ball }section).
 
 \begin{itemize}
 \item There are two types of passes: \emph{low-passes} and \emph{high-passes}.
@@ -493,7 +502,7 @@ A defender blocks an attacker's action or movement if the attacker is within the
 \item A \emph{high-pass} can only be intercepted if a defender is within 2 yards of the footballer with possession and the ball's trajectory intersects the defender's \emph{reach zone}.
 \end{itemize}
 
-\subsubsection{One-touch actions}
+\subsection{One-touch actions}
 
 \begin{itemize}
 \item A \emph{pass} can be combined with a\emph{ one-touch} action in the same turn. The\emph{ one-touch} action is resolved immediately after the \emph{pass }is resolved and before the movement phase.
@@ -517,9 +526,9 @@ A defender blocks an attacker's action or movement if the attacker is within the
 \item It is not possible to concatenate more than \emph{one-touch} action.
 \end{itemize}
 
-\textbf{}\textbf{Note: }A \emph{one-touch} action is \textbf{not} possible with a forward pass. The \emph{one-touch} action is resolved during the action resolution phase, and in a forward pass, the receiver has to move before receiving the ball during the movement phase.
+\textbf{}\NoteIcon\ \textbf{Note: }A \emph{one-touch} action is \textbf{not} possible with a forward pass. The \emph{one-touch} action is resolved during the action resolution phase, and in a forward pass, the receiver has to move before receiving the ball during the movement phase.
 
-\textbf{[Goal]}\textbf{Hint:} the advantage of \emph{one-touch }actions is that they are resolved before the movement phase, preventing the defenders from adjusting their position, including the goalkeeper.
+\textbf{[Goal]}\HintIcon\ \textbf{Hint:} the advantage of \emph{one-touch }actions is that they are resolved before the movement phase, preventing the defenders from adjusting their position, including the goalkeeper.
 
 \paragraph{Indirect Free-kick}
 
@@ -541,15 +550,15 @@ A defender blocks an attacker's action or movement if the attacker is within the
 \item A \emph{corner-kick} can also be resolved as a \emph{direct free-kick} if it is a shot at goal.
 \end{itemize}
 
-\textbf{}\textbf{Note:} an Olympic goal (scoring directly from a corner kick) is highly improbable unless the shot has an \emph{effect}.
+\textbf{}\NoteIcon\ \textbf{Note:} an Olympic goal (scoring directly from a corner kick) is highly improbable unless the shot has an \emph{effect}.
 
-\subsubsection{\textbf{Out}}
+\subsection{\textbf{Out}}
 
 \begin{itemize}
 \item When a pass goes out of the field limits, it is considered an \emph{out}. The opposing team will \emph{restart the game} using the \emph{throw-in} or \emph{goal-kick} skill.
 \end{itemize}
 
-\subsubsection{Offside}
+\subsection{Offside}
 
 Offside rules:
 
@@ -558,7 +567,7 @@ Offside rules:
 \item An attacker is in \emph{offside} position if he is in the opponent's half of the \href{https://www.google.com/url?q=https://en.wikipedia.org/wiki/Association_football_pitch&sa=D&source=editors&ust=1763256892483155&usg=AOvVaw2dh-kL2MMAWFVvTZIcFHaD}{pitch}, and closer to the opponent's \href{https://www.google.com/url?q=https://en.wikipedia.org/wiki/Goal_line_(association_football)&sa=D&source=editors&ust=1763256892483356&usg=AOvVaw2Lw5qNRjCxbeQqIvhePOi4}{goal line} than both the ball and the second-last opponent (the last opponent is usually, but not necessarily, the goalkeeper).
 \end{itemize}
 
-\textbf{Note}: In Footroll, due to its turn-based nature, defenders move after attackers in the Movement Phase, enabling them to systematically advance their defensive line in subsequent turns and force attackers into offside positions before the Action Resolution Phase.
+\NoteIcon\ \textbf{Note}: In Footroll, due to its turn-based nature, defenders move after attackers in the Movement Phase, enabling them to systematically advance their defensive line in subsequent turns and force attackers into offside positions before the Action Resolution Phase.
 
 To ensure fair play, the following rule apply:
 
@@ -568,9 +577,9 @@ To ensure fair play, the following rule apply:
 \item An attacker is \textbf{not} considered to be in an \emph{offside} position if, during the movement phase of the same turn, the attacker can temporarily get outside the \emph{offside} position with a bouncing movement (moving backward and then forward). This bouncing movement exhausts movement points.
 \end{itemize}
 
-\textbf{}\textbf{Note:} the attacker \textbf{cannot} perform a \emph{one-touch} action in this case, like in forward passes.
+\textbf{}\NoteIcon\ \textbf{Note:} the attacker \textbf{cannot} perform a \emph{one-touch} action in this case, like in forward passes.
 
-\subsubsection{\textbf{Challenged ball}}
+\subsection{\textbf{Challenged ball}}
 
 When a defender is within the \emph{reach zone} of the receiver of a pass, control of the ball must be determined as follows:
 
@@ -600,7 +609,7 @@ A \emph{dead ball} occurs when a ball is not possessed by any footballer, after 
 \item If multiple footballers reach the ball's position with the same remaining movement points, the situation is resolved as a \emph{challenged ball}.
 \end{itemize}
 
-\subsubsection{Fouls}
+\subsection{Fouls}
 
 \emph{Fouls} can only be committed by a defender or an attacker in a \textbf{one-on-one action} against a defender (not during passes or shots).
 
@@ -631,9 +640,9 @@ A \emph{dead ball} occurs when a ball is not possessed by any footballer, after 
 \item If the foul occurs during the restart of the game, the action is repeated.
 \end{itemize}
 
-\textbf{}\textbf{Note}\textbf{: }Interpreting the foul is free depending on the situation (e.g., illegal tackle, handball, aggression, protest to the referee, etc.).
+\textbf{}\NoteIcon\ \textbf{Note}\textbf{: }Interpreting the foul is free depending on the situation (e.g., illegal tackle, handball, aggression, protest to the referee, etc.).
 
-\subsubsection{Injuries}
+\subsection{Injuries}
 
 \textbf{Injuries after a foul}
 
@@ -661,11 +670,11 @@ A \emph{dead ball} occurs when a ball is not possessed by any footballer, after 
 \item The team with the injured footballer must continue playing without it until a substitution is possible. The injured footballer can be substituted in the next play or when their team gains control of the ball and requests to stop the game.
 \end{itemize}
 
-\textbf{}\textbf{Note}\textbf{:} fair play mandates that the play be immediately interrupted to allow the injured footballer substitution. This, however, is not forced by these rules.
+\textbf{}\NoteIcon\ \textbf{Note}\textbf{:} fair play mandates that the play be immediately interrupted to allow the injured footballer substitution. This, however, is not forced by these rules.
 
-\textbf{[Goal]}\textbf{Hint}: lay the pawn down on the board to indicate an injury.
+\textbf{[Goal]}\HintIcon\ \textbf{Hint}: lay the pawn down on the board to indicate an injury.
 
-\subsubsection{\textbf{Shooting at Goal}}
+\subsection{\textbf{Shooting at Goal}}
 
 \textbf{Sequence of Actions}:
 
@@ -718,9 +727,9 @@ If the goalkeeper succeeds in reaching the ball:
 \item The attacker may choose to use the \emph{lob} skill instead. In this case, the \emph{shot} is like a \emph{high-pass}, independently of the distance.
 \end{itemize}
 
-\textbf{}\textbf{Note}\textbf{:} Outside the penalty area, there is no difference between a goalkeeper and a defender\textbf{.}
+\textbf{}\NoteIcon\ \textbf{Note}\textbf{:} Outside the penalty area, there is no difference between a goalkeeper and a defender\textbf{.}
 
-\subsubsection{Post}
+\subsection{Post}
 
 \begin{itemize}
 \item If the result of a shooting action equals the difficulty, the ball hits the post.
@@ -729,20 +738,22 @@ If the goalkeeper succeeds in reaching the ball:
 \item If the rebound goes inside the goal, the goalkeeper must perform a \emph{reach} action and, if successful, a \emph{catch} action to avoid a goal.
 \end{itemize}
 
-\subsubsection{\textbf{Penalty}}
+\subsection{\textbf{Penalty}}
 
 \begin{itemize}
 \item A \emph{penalty }is resolved as a regular\emph{ shot-at-goal }from the penalty spot using the \emph{penalty }skill.
 \item The player taking the penalty can choose one of the two possible cells behind the penalty spot to shoot from.
 \end{itemize}
 
-\subsubsection{\textbf{Effects}}
+\subsection{\textbf{Effects}}
 
 \begin{itemize}
 \item A player can declare if a shot will have an \emph{effect} (a curved trajectory) during the action resolution phase.
 \item The \emph{effect }action must be resolved before resolving the \emph{shooting }action.\bigskip\hrule\bigskip
 \end{itemize}
 
+\clearpage
+\clearpage
 \section{\textbf{Game Actions}}
 
 \subsection{\textbf{One-on-One Actions}}
@@ -774,7 +785,7 @@ It is overtaking an opponent without losing possession of the ball.
 \item The attacker loses half of the movement points during this turn.
 \end{itemize}
 
-\textbf{[Goal]}\textbf{Hint}: The pawn can be laid down to indicate that its movement is halved for this turn.
+\textbf{[Goal]}\HintIcon\ \textbf{Hint}: The pawn can be laid down to indicate that its movement is halved for this turn.
 
 \subsubsection{To Feint}
 
@@ -1096,7 +1107,7 @@ where (RX, Ry) and (Lx, Ly) are the x and y components of the distances R and L.
 \item If there are defenders in the reach zone of the attacker, the defender's actions (including \emph{intercept}) have to be resolved from the original position.
 \end{itemize}
 
-\textbf{}\textbf{Note:} defenders in the reach zone of the virtual position cannot intercept the ball.
+\textbf{}\NoteIcon\ \textbf{Note:} defenders in the reach zone of the virtual position cannot intercept the ball.
 
 \textbf{[Goal]}\textbf{ Hint}: to perform an \emph{orthogonal move} (x, y), swap x and y components and invert the direction of one of the two components. Two possible directions can be freely chosen: (-y, x) or (y, -x).
 
@@ -1104,7 +1115,7 @@ where (RX, Ry) and (Lx, Ly) are the x and y components of the distances R and L.
 
 \textbf{\emph{For example}}\emph{. The shot follows a curved trajectory towards the goal at a distance L = (22, 9). Considering A=100, the effect is 100\% of L/2, resulting in R = (11, 4). The two possible virtual positions are at a distance R moving orthogonally, this is (-4, 11) or (4, -11).}
 
-\subsubsection{\textbf{Penalty}}
+\subsection{\textbf{Penalty}}
 
 \begin{itemize}
 \item A \emph{penalty} kick is conceded if a foul (voluntary or not) occurs in the opponent's penalty area.
@@ -1131,7 +1142,7 @@ where (RX, Ry) and (Lx, Ly) are the x and y components of the distances R and L.
 \item Shot difficulty = [51, \textbf{100]} $\rightarrow$ \textbf{1}
 \end{itemize}
 
-\textbf{}\textbf{Note:} note that 20 = 100/5, 25 = 100/4, 33 = 100/3 and 50 = 100/2.
+\textbf{}\NoteIcon\ \textbf{Note:} note that 20 = 100/5, 25 = 100/4, 33 = 100/3 and 50 = 100/2.
 
 \begin{itemize}
 \item The \emph{difficulty of the free-kick} \emph{D} is the sum of the \emph{difficulty of the shot} \emph{D}\emph{shot} plus the \emph{difficulty of the wall} \emph{D}\emph{wall}.
@@ -1147,11 +1158,11 @@ D = Dshot + Dwall
 
 Dwall=20\textperiodcentered{}min(Nwall, Neff)/Neff
 
-\textbf{}\textbf{Note:} placing fewer wall defenders than the \emph{maximum effective wall defenders} reduces the effectiveness of the defensive wall.
+\textbf{}\NoteIcon\ \textbf{Note:} placing fewer wall defenders than the \emph{maximum effective wall defenders} reduces the effectiveness of the defensive wall.
 
-\textbf{}\textbf{Note}: if there are more wall defenders than the \emph{maximum} \emph{number of effective wall defenders}, the excess of wall defenders is useless, unless the shot has an \emph{effect} or in case of an indirect kick.
+\textbf{}\NoteIcon\ \textbf{Note}: if there are more wall defenders than the \emph{maximum} \emph{number of effective wall defenders}, the excess of wall defenders is useless, unless the shot has an \emph{effect} or in case of an indirect kick.
 
-\textbf{}\textbf{Note}: if the attacker places footballers at the wall position, they similarly count as defenders at the wall.
+\textbf{}\NoteIcon\ \textbf{Note}: if the attacker places footballers at the wall position, they similarly count as defenders at the wall.
 
 \textbf{Success: }
 
