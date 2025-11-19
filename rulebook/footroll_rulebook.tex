@@ -16,7 +16,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{float}
-\usepackage{caption}
+\usepackage[font=it]{caption}
 \usepackage[export]{adjustbox} % For valign=c in includegraphics
 
 % --- Visual Setup ---
@@ -131,16 +131,7 @@
   breakable
 }
 
-\newtcolorbox{actionbox}[1]{
-  colback=blue!5!white,
-  colframe=footrollblue,
-  title={\textbf{#1}},
-  fonttitle=\Large\bfseries,
-  boxrule=0.5mm,
-  left=2mm, right=2mm, top=2mm, bottom=2mm,
-  arc=2mm,
-  breakable
-}
+
 
 \newcommand{\actionsep}{%
   \par\vspace{0.5em}\noindent{\color{footrollblue!30}\rule{\linewidth}{0.5pt}}\vspace{0.5em}\par}
@@ -267,7 +258,7 @@ FIFA does not specify a fixed size of the pitch. Instead, it limits the pitch to
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.55\textwidth]{images/image13.png}
+\includegraphics[width=1.0\textwidth]{images/image13.png}
 \caption{The allowed football pitch sizes and pitch element definitions.}
 \end{figure}
 
@@ -277,7 +268,7 @@ Some game actions require the measurement of distances. All distances are measur
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.55\textwidth]{images/image21.png}
+\includegraphics[width=0.3\textwidth]{images/image21.png}
 \caption{The manhattan distance is defined as the length of the minimum path between two points following right angle (orthogonal) trajectories. Diagonal trajectories are prohibited. There is more than one possible minimum path, but all have the same length (the blue and green paths have the same manhattan length). The use of the manhattan distance avoids the fact that diagonal movements are faster than orthogonal movements in a grid.}
 \end{figure}
 
@@ -352,9 +343,11 @@ Some actions need to determine a direction. To this end, a dice roll over 8 (D8)
 
 \begin{figure}[H]
 \centering
-Opponent's side
-\includegraphics[width=0.55\textwidth]{images/image10.png}
+\begin{tabular}{c}
+Opponent's side \\
+\includegraphics[width=0.3\textwidth]{images/image10.png} \\
 Own's side
+\end{tabular}
 \caption{Direction determination.}
 \end{figure}
 
@@ -375,8 +368,8 @@ Its interpretation is the following:
 \toprule
 \textbf{Icon} & \textbf{Result} \\
 \midrule
-\RulebookInlineImage[0.18\textwidth]{images/image18.png} & The foul is resolved with a card \\
-\RulebookInlineImage[0.18\textwidth]{images/image11.jpg} & The foul is resolved without a card \\
+\RulebookInlineImage[0.05\textwidth]{images/image18.png} & The foul is resolved with a card \\
+\RulebookInlineImage[0.05\textwidth]{images/image11.jpg} & The foul is resolved without a card \\
 (empty) & The foul is ignored by the referee \\
 \bottomrule
 \end{tabular}
@@ -398,8 +391,8 @@ Its interpretation is the following:
 \toprule
 \textbf{Card} & \textbf{Result} \\
 \midrule
-\RulebookInlineImage[0.18\textwidth]{images/image17.png} & The footballer is booked with a yellow card \\
-\RulebookInlineImage[0.18\textwidth]{images/image20.png} & The footballer is sent off with a red card \\
+\RulebookInlineImage[0.05\textwidth]{images/image17.png} & The footballer is booked with a yellow card \\
+\RulebookInlineImage[0.05\textwidth]{images/image20.png} & The footballer is sent off with a red card \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -416,7 +409,7 @@ A dice roll over 100 (D100) is used to determine the score of an action. The val
 $A = \frac{D_{100}}{100} \cdot S$
 \end{formulabox}
 
-\paragraph{Action Result}
+
 
 \paragraph{Success or failure}
 
@@ -1061,100 +1054,109 @@ Outside the penalty area, there is no difference between a goalkeeper and a defe
 
 \subsection{\textbf{One-on-One Actions}}
 
-\begin{actionbox}{To Dribble}
+\subsubsection{To Dribble}
 It is overtaking an opponent without losing possession of the ball.
 
+\begin{rulebox}
 \begin{itemize}
 \item If one or more defenders are within the reach zone of the attacker, the latter must \emph{dribble }to continue the movement during the movement phase.
 \item The attacker's \emph{dribble }result must beat all the defender's \emph{tackle }results (or \emph{hand tackle} in the case of the goalkeeper being within his box) with the same dice roll.
 \item The goalkeeper has a modifier of +20 to the skill of \emph{hand-tackling} within his box.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The attacker overtakes the defender.
 \item The pawns' positions must be swapped.
 \item The defender will lose half of the movement points during this turn.
 \item If, after swapping the pawns' positions, another defender is within the reach zone of the attacker, the attacker can dribble the defender or the defender can tackle the attacker in the same turn.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The attacker loses possession of the ball in favor of the defender.
 \item The pawns' positions must be swapped
 \item The attacker loses half of the movement points during this turn.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \begin{hint}
 The pawn can be laid down to indicate that its movement is halved for this turn.
 \end{hint}
 
-\begin{actionbox}{To Feint}
+\subsubsection{To Feint}
 It prevents a defender from taking control of the ball without overtaking him.
 
+\begin{rulebox}
 \begin{itemize}
 \item If one or more defenders are within the reach zone of the attacker, the latter must \emph{feint }to pass the ball or avoid being tackled.
 \item The attacker's \emph{feint }result must beat all the defenders' \emph{tackle }results.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The attacker avoids the tackle and can pass the ball.
 \item The defender loses half of the movement points during this turn.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The attacker loses possession of the ball in favor of the defender.
 \item The attacker loses half of the movement points during this turn.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \begin{hint}
 The pawn can be laid down to indicate that its movement is halved for this turn.
 \end{hint}
 
-\begin{actionbox}{To Tackle}
+\subsubsection{To Tackle}
 It is a defender trying to steal the ball from an attacker.
 
+\begin{rulebox}
 \begin{itemize}
 \item A defender can \emph{tackle} if he is within the reach zone of the attacker with the possession of the ball.
 \item The goalkeeper can \emph{tackle} inside his box with a modification of +20.
 \item The defender's \emph{tackle }result must beat the attacker's \emph{feint }result.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The defender takes control of the ball.
 \item The pawns' positions must be swapped.
 \item The attacker loses half of the movement points during this turn.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure:}
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The defender does not take control of the ball.
 \item The defender loses half of the movement points during this turn.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \begin{hint}
 The pawn can be laid down to indicate that its movement is halved for this turn.
 \end{hint}
 
-\begin{actionbox}{To Slip}
+\subsubsection{To Slip}
 It is an attacker trying to overcome a defender's mark. It is equivalent to dribbling without possession.
 
 \begin{rulebox}
@@ -1164,89 +1166,96 @@ It is an attacker trying to overcome a defender's mark. It is equivalent to drib
 \end{itemize}
 \end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The attacker dodges the defender's mark.
 \item The pawns' positions must be swapped
 \item The defender loses half of the movement points during this turn.
 \item The defender cannot take another action during this turn.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure:}
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The attacker fails to dodge the defender's mark.
 \item The attacker loses half of the movement points during this turn.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \begin{hint}
 To indicate that the movement is halved for this turn, lay the pawn down on the board.
 \end{hint}
 
-\begin{actionbox}{To Intercept}
+\subsubsection{To Intercept}
 It is intercepting the ball by a defender in a pass or shot.
 
+\begin{rulebox}
 \begin{itemize}
 \item A \emph{low-pass} or a \emph{shot-at-goal} can be intercepted if the trajectory of the ball as a straight line goes through the \emph{reach zone} of the defender.
 \item A \emph{high-pass} can be intercepted only if the defender is 2 yards or fewer from the attacker (see figure 4).
 \end{itemize}
+\end{rulebox}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.55\textwidth]{images/image12.png}
-
-\includegraphics[width=0.55\textwidth]{images/image19.png}
-
-\includegraphics[width=0.55\textwidth]{images/image6.png}
+\includegraphics[width=0.32\textwidth]{images/image12.png}\hfill
+\includegraphics[width=0.32\textwidth]{images/image19.png}\hfill
+\includegraphics[width=0.32\textwidth]{images/image6.png}
 \caption{If the destination of the pass is in one of the red cells, the pass may be intercepted by the defender.}
 \end{figure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The defender's \emph{intercept }result has to overcome the pass or shot score.
 \item The goalkeeper can \emph{intercept} inside his box with a modification of +20.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The ball is intercepted by the defender and he gains possession of the ball.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure:}
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The ball is not intercepted by the defender.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \bigskip\hrule\bigskip
 
 \subsection{Passing Actions}
 
-\begin{actionbox}{To Pass}
+\subsubsection{To Pass}
 It is to give the ball to another footballer using a shot.
 
+\begin{rulebox}
 \begin{itemize}
 \item An attacker who wants to pass the ball has to resolve a \emph{low-pass} or \emph{high-pass} action depending on the length of the pass.
 \item The action score has to be equal to or higher than the length L of the pass.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The receiver of the pass gets possession of the ball.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The ball does not reach the desired position.
 \begin{formulabox}
@@ -1254,33 +1263,37 @@ $E = \frac{L - A}{2}$
 \end{formulabox}
 \item To determine the direction of the error a D8 dice roll is used (Figure 3).
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{Goal-kick}
+\subsubsection{Goal-kick}
+\begin{rulebox}
 \begin{itemize}
 \item The goal-kick action is used when the goalkeeper performs any long pass in his penalty area, even though the action is not a goal kick strictly speaking.
 \item A goal-kick action is resolved in the same way as a pass using the goal-kick skill.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{Defensive Header}
+\subsubsection{Defensive Header}
 A \emph{defensive header} is an action by which a defender deflects a pass or corner-kick of the attacking team using a header, in general in the direction of a teammate.
 
+\begin{rulebox}
 \begin{itemize}
 \item It is a one-touch action that can be performed after a high pass (long pass or corner).
 \item The action score has to be equal to or higher than triple the length (3L) of the pass.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The receiver of the pass gets possession of the ball.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The ball does not reach the desired position.
 \begin{formulabox}
@@ -1288,27 +1301,30 @@ $E = \frac{3L - A}{3}$
 \end{formulabox}
 \item To determine the direction of the error a D8 dice roll is used like in a regular pass.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{To Throw-in}
+\subsubsection{To Throw-in}
 It is the action of restarting the game from the touchline using a pass with the hands.
 
+\begin{rulebox}
 \begin{itemize}
 \item After an out, the team with possession of the ball will restart the game with a throw-in action.
 \item The action score has to be equal to or higher than double the length (2L) of the pass.
 \item A t\emph{hrow-in} pass is equivalent to a \emph{high-pass} without minimum distance.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The receiver of the pass gets possession of the ball.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The ball does not reach the desired position.
 \begin{formulabox}
@@ -1316,26 +1332,29 @@ $E = \frac{2L - A}{2}$
 \end{formulabox}
 \item To determine the direction of the error an 8-sided dice roll is used like in a regular pass.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{Hand-pass}
+\subsubsection{Hand-pass}
 It is the action of the goalkeeper to pass the ball to a teammate using his hands.
 
+\begin{rulebox}
 \begin{itemize}
 \item The goalkeeper can pass the ball to a teammate using his hands inside his box.
 \item The result of the action has to be equal to or higher than double the length (2L) of the pass.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The receiver of the pass gets possession of the ball.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The ball does not reach the desired position.
 \begin{formulabox}
@@ -1343,24 +1362,27 @@ $E = \frac{2L - A}{2}$
 \end{formulabox}
 \item To determine the direction of the error an 8-sided dice roll is used like in a regular pass.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \bigskip\hrule\bigskip
 
 \subsection{\textbf{Shooting Actions}}
 
-\begin{actionbox}{Shot at Goal}
-\subparagraph{It is kicking the ball against the opponent's goal when the ball is already in play.}
+\subsubsection{Shot at Goal}
+It is kicking the ball against the opponent's goal when the ball is already in play.
 
 \paragraph{Shot placement}
 
+\begin{rulebox}
 \begin{itemize}
 \item The attacker must overcome the difficulty \emph{D} of the shot, which is given by the printed values in each cell of the grid. It is not possible to \emph{shoot-at-goal} from one's side of the field.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success: }The ball goes between the goal limits, and a \emph{target} position must be determined.
+\paragraph{Success}
+The ball goes between the goal limits, and a \emph{target} position must be determined.
 
+\begin{rulebox}
 \begin{itemize}
 \item The goal target is divided into a vertical grid of 3x8 targets. The action result\emph{ R} determines the possible goal targets. The difference between the action score \emph{A} and the difficulty of the shot \emph{D gives it}.
 \end{itemize}
@@ -1372,6 +1394,7 @@ $R = A - D$
 \begin{itemize}
 \item The ball can be placed at a target with a maximum distance \textbf{R}\textbf{/5} from the point of the goal line closest to the attacker (\emph{closest target}). The attacker can decide on any closer target depending on the goalkeeper's position.
 \end{itemize}
+\end{rulebox}
 
 \begin{hint}
 You can use the last row of the grid of the field and the grid inside the goal as a reference.
@@ -1389,9 +1412,9 @@ You can use the last row of the grid of the field and the grid inside the goal a
 \caption{\textbf{\emph{For example}}, if the attacker is shooting from the left and the closest target is the dashed circle and the action result is R=18, the attacker can choose any target in green with a target threshold lower than R. The target thresholds are given by their distance from the closest target at a rate of 5 points per cell. A wise attacker will choose a target far from the goalkeeper position. Remember, that the position of the goalkeeper is relevant to the gameplay.}
 \end{figure}
 
-\actionsep
-\textbf{Draw: }
+\paragraph{Draw}
 
+\begin{rulebox}
 \begin{itemize}
 \item The ball hits the post
 \item The direction of the \emph{rebound }is determined by a D8 dice roll:
@@ -1406,6 +1429,7 @@ You can use the last row of the grid of the field and the grid inside the goal a
 \begin{itemize}
 \item If the \emph{rebound }goes towards the goal, the goalkeeper has to \emph{reach }(and \emph{catch}) the ball. The \emph{target }position is determined by the D8 dice roll value, respect to the \emph{closest target} (see Figure 8):
 \end{itemize}
+\end{rulebox}
 
 \begin{figure}[H]
 \centering
@@ -1413,20 +1437,22 @@ You can use the last row of the grid of the field and the grid inside the goal a
 \caption{For example, if the closest target is the dashed circle and the D8 dice roll equals 8, the target placement is the cell indicated by the ball.}
 \end{figure}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \begin{formulabox}
 $E = \frac{D - A}{2}$
 \end{formulabox}
 \item The opponent's goalkeeper must put the ball in play through a \emph{goal-kick} action.
 \end{itemize}
+\end{rulebox}
 
-\paragraph{\textbf{Shot power}}
+\paragraph{Shot power}
 
 When a shot at goal is successful and the goalkeeper can reach the ball, the shot power is then compared to the result of the goalkeeper's \emph{catch }action to determine if he can catch or deflect the ball (see \emph{catch }action). If the goalkeeper cannot reach the ball, it is not necessary to determine the shot power, and a goal is scored. It is possible to roll the dice for simulation purposes, but this does not affect the result of the shot.
 
+\begin{rulebox}
 \begin{itemize}
 \item To determine the shot power\emph{,} the\emph{ shot power} skill \emph{S} is used.
 \item The \emph{shot-power} \emph{R} is calculated as:
@@ -1442,11 +1468,12 @@ $R = \frac{A}{100} \cdot (100 - D)$
 \item The \emph{shot-power }determines the difficulty that the goalkeeper has to overcome to catch the ball (see \emph{catch} section).
 \item If the ball hits the post, the result of the \emph{shot-power }determines the distance of the rebound.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{Effect}
+\subsubsection{Effect}
 A shot-at-goal can have an \emph{effect}, that is, a curved trajectory.
 
+\begin{rulebox}
 \begin{itemize}
 \item To determine the amount of effect, the \emph{effect }skill is used.
 \item The action result \emph{R} is the action score \emph{A} divided by 100 times half of the distance L of the \emph{shot}:
@@ -1465,7 +1492,7 @@ where (RX, Ry) and (Lx, Ly) are the x and y components of the distances R and L.
 \item In a \emph{free-kick} with a wall, if the straight trajectory from the \emph{virtual }position does not intersect the wall, the wall has no effect.
 \item If there are defenders in the reach zone of the attacker, the defender's actions (including \emph{intercept}) have to be resolved from the original position.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \begin{note}
 Defenders in the reach zone of the virtual position cannot intercept the ball.
@@ -1483,12 +1510,15 @@ To perform an \emph{orthogonal move} (x, y), swap x and y components and invert 
 
 \subsection{\textbf{Penalty}}
 
+\begin{rulebox}
 \begin{itemize}
 \item A \emph{penalty} kick is conceded if a foul (voluntary or not) occurs in the opponent's penalty area.
 \item A \emph{penalty} is resolved as a shot from the penalty point using the skill \emph{penalty}.
 \end{itemize}
+\end{rulebox}
 
-\begin{actionbox}{Free-kick}
+\subsubsection{Free-kick}
+\begin{rulebox}
 \begin{itemize}
 \item A \emph{free-kick} is resolved as a shoot using the \emph{free-kick} skill.
 \item In a \emph{free-kick}, the attacking player places their footballers first, followed by the defending player.
@@ -1496,9 +1526,11 @@ To perform an \emph{orthogonal move} (x, y), swap x and y components and invert 
 \item There is no limit on the \emph{number of wall defenders }(Nwall)\emph{.}
 \item Only a maximum of wall defenders are effective, depending on the apparent size of the goal from the shooting position. The \emph{maximum effective wall defenders} is given by the shot difficulty (the value in the grid cell):
 \end{itemize}
+\end{rulebox}
 
 \paragraph{Maximum effective wall defenders (Neff)}
 
+\begin{rulebox}
 \begin{itemize}
 \item Shot difficulty = [01,  \textbf{20]} $\rightarrow$ \textbf{5}
 \item Shot difficulty = [21,  \textbf{25]} $\rightarrow$ \textbf{4}
@@ -1506,11 +1538,13 @@ To perform an \emph{orthogonal move} (x, y), swap x and y components and invert 
 \item Shot difficulty = [34,  \textbf{50]} $\rightarrow$ \textbf{2}
 \item Shot difficulty = [51, \textbf{100]} $\rightarrow$ \textbf{1}
 \end{itemize}
+\end{rulebox}
 
 \begin{note}
 Note that 20 = 100/5, 25 = 100/4, 33 = 100/3 and 50 = 100/2.
 \end{note}
 
+\begin{rulebox}
 \begin{itemize}
 \item The \emph{difficulty of the free-kick} \emph{D} is the sum of the \emph{difficulty of the shot} \emph{D}\emph{shot} plus the \emph{difficulty of the wall} \emph{D}\emph{wall}.
 \end{itemize}
@@ -1518,11 +1552,13 @@ Note that 20 = 100/5, 25 = 100/4, 33 = 100/3 and 50 = 100/2.
 \begin{formulabox}
 $D = D_{shot} + D_{wall}$
 \end{formulabox}
+\end{rulebox}
 
 \begin{specialcase}
 If the shot has an \emph{effect }that overcomes the wall \emph{D}\emph{wall }= 0.
 \end{specialcase}
 
+\begin{rulebox}
 \begin{itemize}
 \item The difficulty of the wall \emph{D}\emph{wall} is equal to:
 \end{itemize}
@@ -1530,6 +1566,7 @@ If the shot has an \emph{effect }that overcomes the wall \emph{D}\emph{wall }= 0
 \begin{formulabox}
 $D_{wall} = 20 \cdot \frac{\min(N_{wall}, N_{eff})}{N_{eff}}$
 \end{formulabox}
+\end{rulebox}
 
 \begin{note}
 Placing fewer wall defenders than the \emph{maximum effective wall defenders} reduces the effectiveness of the defensive wall.
@@ -1543,64 +1580,71 @@ If there are more wall defenders than the \emph{maximum} \emph{number of effecti
 If the attacker places footballers at the wall position, they similarly count as defenders at the wall.
 \end{note}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item If the result is \textbf{higher }than the \emph{difficulty of the free-kick} the action is resolved as a \emph{shot }to goal with the modified difficulty of the \emph{free-kick}.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Draw: }
+\paragraph{Draw}
 
+\begin{rulebox}
 \begin{itemize}
 \item If the result is \textbf{equal }to the \emph{difficulty of the free-kick}, then the ball hits the post (see \emph{shot }to resolve the post situation).
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item If the result is \textbf{lower }than the \emph{difficulty of the free-kick} but \textbf{higher or equal }to the \emph{difficulty of the shot}, then the ball hits the wall. The situation is resolved as a failed \emph{pass} to determine the ball's final position.
 \item If the result is \textbf{lower }than the \emph{difficulty of the shot}, then the ball gets out of the pitch.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{Finish}
+\subsubsection{Finish}
+\begin{rulebox}
 \begin{itemize}
 \item A finish is a \emph{one-touch} action and it is resolved in the same turn when the \emph{pass }is performed.
 \item It is resolved as a \emph{shot at goal} with the \emph{finish }skill.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{Scissors-kick}
+\subsubsection{Scissors-kick}
+\begin{rulebox}
 \begin{itemize}
 \item A \emph{scissors-kick} can only be performed after a \emph{long pass},
 \item A \emph{scissors-kick} is a \emph{one-touch} action and it is resolved in the same turn when the \emph{long pass }is finished.
 \item It has a modifier of \textbf{+20} to the difficulty of the \emph{shot}.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{Offensive Header}
+\subsubsection{Offensive Header}
+\begin{rulebox}
 \begin{itemize}
 \item An \emph{offensive header} can only be performed after a \emph{long pass}.
 \item An \emph{offensive header} is a \emph{one-touch} action, and it is resolved in the same turn when the \emph{long pass }is finished.
 \item It is resolved as a \emph{shot }but considering the \textbf{double }of the shot difficulty.
 \item In this case, the \emph{shot power} is calculated using the \emph{header power} skill.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \bigskip\hrule\bigskip
 
 \subsection{\textbf{Goalkeeper's Actions}}
 
-\begin{actionbox}{To Reach}
+\subsubsection{To Reach}
 Upon a successful shooting, the goalkeeper has to \emph{reach }the ball to be able to \emph{catch }it and prevent a goal.
 
+\begin{rulebox}
 \begin{itemize}
 \item The \emph{reach }skill is used\emph{.}
 \item The goalkeeper must overcome or equal \textbf{x10 }the distance L between the goalkeeper and the \emph{target} positions.
 \end{itemize}
+\end{rulebox}
 
 \begin{specialcase}
 If the defender of the goal is not the goalkeeper but another defender:
@@ -1621,79 +1665,83 @@ The goalkeeper's position is critical to the gameplay!
 \caption{The difficulty of reaching the ball is 10 times the distance between the goalkeeper and the target position (in this example 70).}
 \end{figure}
 
-\actionsep
-\textbf{Success: }
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item The goalkeeper reaches the ball and can try to catch the ball.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The goalkeeper does not reach the ball and a goal is scored.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
-\begin{actionbox}{To Catch}
+\subsubsection{To Catch}
 Upon reaching the ball, the goalkeeper can try to catch or deflect the ball.
 
+\begin{rulebox}
 \begin{itemize}
 \item The \emph{catch }skill is used.
 \item The goalkeeper has to overcome or equal the \emph{shot-power} or \emph{header-power}.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Success:}
+\paragraph{Success}
 
+\begin{rulebox}
 \begin{itemize}
 \item If the \emph{catch }result is \textbf{higher or equal }to \textbf{x2 }the \emph{shot} or \emph{header power}, the goalkeeper catches the ball and gains possession of the ball.
 \item If the \emph{catch }result is \textbf{higher or equal} to the \emph{shot} or \emph{header power} but \textbf{lower }than \textbf{x2} the \emph{shot} or \emph{header power}, the goalkeeper deflects the ball which goes out of the pitch. A \emph{corner }action has to be resolved.
 \end{itemize}
+\end{rulebox}
 
-\actionsep
-\textbf{Failure: }
+\paragraph{Failure}
 
+\begin{rulebox}
 \begin{itemize}
 \item The goalkeeper cannot catch the ball and a goal is scored.
 \end{itemize}
-\end{actionbox}
+\end{rulebox}
 
 \clearpage
 \section{Actions Cheat Sheet}
 
-\textbf{D}\textbf{100 }\textbf{= Dice roll over 100                                                                          }\textbf{Directions (D}\textbf{8}\textbf{)}
+\begin{minipage}[t]{0.65\textwidth}
+\begin{itemize}
+\item \textbf{D100} = Dice roll over 100
+\item \textbf{S} = skill
+\item \textbf{V} = velocity skill
+\item \textbf{A} = action score
+\item \textbf{D} = action difficulty
+\item \textbf{Dshot} = difficulty of the shot (grid cell value)
+\item \textbf{R} = action result
+\item \textbf{E} = action error
+\item \textbf{L} = manhattan distance (in yards or cells)
+\item \textbf{GK} = goalkeeper
+\item \textbf{x} = component in the long-axis direction of the field
+\item \textbf{y} = component in the short-axis direction of the field
+\item \textbf{(1)} = \emph{one-touch} action (resolved in the same turn as the \emph{pass})
+\item \textbf{(L)} = from a \emph{low-pass} only
+\item \textbf{(H)} = from a \emph{high-pass} only
+\item \textbf{Action score:} $A = \frac{D_{100}}{100} \cdot S$
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+\textbf{Directions (D8)}
 
-\textbf{S = skill                                                                                               }
+\vspace{1em}
 
-\textbf{V = velocity skill                                                                                         Opponent's side}
-
-\textbf{A = action score}\RulebookInlineImage{images/image10.png}
-
-\textbf{D = action difficulty}
-
-\textbf{D}\textbf{shot }\textbf{= difficulty of the shot (grid cell value)}
-
-\textbf{R = action result}
-
-\textbf{E = action error}
-
-\textbf{L = manhattan distance (in yards or cells)}
-
-\textbf{GK = goalkeeper}
-
-\textbf{x = component in the long-axis direction of the field}
-
-\textbf{y = component in the short-axis direction of the field}
-
-\textbf{(1)}\textbf{ = }\textbf{\emph{one-touch}}\textbf{ action (resolved in the same turn as the }\textbf{\emph{pass}}\textbf{) }
-
-\textbf{(L)}\textbf{\emph{ = }}\textbf{from a }\textbf{\emph{low-pass}}\textbf{ only                                                                                                     Own's side}
-
-\textbf{(H)}\textbf{\emph{ = }}\textbf{from a }\textbf{\emph{high-pass}}\textbf{ only}
-
-\textbf{Action score: A = D}\textbf{100}\textbf{/100} \textperiodcentered{} \textbf{S}
+Opponent's side \\
+\includegraphics[width=0.8\linewidth]{images/image10.png} \\
+Own's side
+\end{minipage}
 
 \begin{itemize}
 \item \textbf{D}\textbf{100} \textbf{= 0 $\rightarrow$ potential injury (D=101-}\textbf{\emph{Strength}}\textbf{)}
