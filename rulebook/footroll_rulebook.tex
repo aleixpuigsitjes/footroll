@@ -51,6 +51,16 @@
   {\color{footrollblue}\large\bfseries}
   {\thesubsection}{1em}{}
 
+\titleformat{\paragraph}[hang]
+  {\bfseries}
+  {}
+  {0em}
+  {}
+\titlespacing*{\paragraph}
+  {0pt}
+  {1em}
+  {1em}
+
 % --- Custom Boxes ---
 \tcbuselibrary{skins,breakable}
 
@@ -197,12 +207,12 @@ Footroll follows the official FIFA rules for football, unless otherwise specifie
 Footroll is a turn-based game with no time limit. The match ends when a specified number of goals are scored.
 
 \begin{note}
-A consequence of this rule is that the game is not divided into two halves.
+A consequence of this rule is that the game is not divided into halves.
 \end{note}
 
 The winning conditions can vary:
 
-\textbf{One-side Maximum Goals}
+\paragraph{One-side Maximum Goals}
 
 \begin{itemize}
 \item One side scores 1 goal: 1-0 (golden goal)
@@ -212,7 +222,7 @@ The winning conditions can vary:
 \item One side scores 5 goals: 5-0, 5-1, 5-2, 5-3, 5-4
 \end{itemize}
 
-\textbf{Total Maximum Goals}
+\paragraph{Total Maximum Goals}
 
 \begin{itemize}
 \item Total goals are 2: 2-0, 1-1 (recommended for short league matches)
@@ -221,27 +231,27 @@ The winning conditions can vary:
 \item Total goals are 5: 5-0, 4-1, 3-2
 \end{itemize}
 
-\textbf{One-sided Plus Total Maximum Goals}
+\paragraph{One-sided Plus Total Maximum Goals}
 
 \begin{itemize}
 \item One side scores 3 goals or a total of 4 goals are scored: 3-0, 3-1, 2-2 (recommended for long league matches)
 \end{itemize}
 
-\textbf{Maximum Goal Difference Without Limit}
+\paragraph{Maximum Goal Difference Without Limit}
 
 \begin{itemize}
 \item One side scores 2 goals more than the opponent: 2-0, 3-1, 4-2, 5-3, ...
 \item One side scores 3 goals more than the opponent: 3-0, 4-1, 5-2, 6-3, ...
 \end{itemize}
 
-\textbf{Maximum Goal Difference With One-Side Limi}t
+\paragraph{Maximum Goal Difference With One-Side Limit}
 
 \begin{itemize}
 \item One side scores 2 goals more than the opponent, or one side scores 5 goals: 2-0, 3-1, 4-2, 5-3, 5-4
 \item One side scores 3 goals more than the opponent, or one side scores 5 goals: 3-0, 4-1, 5-2, 5-3, 5-4 (recommended for a tournament final)
 \end{itemize}
 
-\textbf{Maximum Goal Difference With Total Limit}
+\paragraph{Maximum Goal Difference With Total Limit}
 
 \begin{itemize}
 \item One side scores 2 goals more than the opponent or a total of 4 goals are scored: 2-0, 3-1, 2-2
@@ -255,17 +265,21 @@ The game is played on a board (the pitch) according to the FIFA rules scaled to 
 
 FIFA does not specify a fixed size of the pitch. Instead, it limits the pitch to a minimum and maximum size. In the same way, Footroll does not define a fixed pitch size as long as it respects the FIFA rules and the specified scaling factor. The size of the pitch has an impact on the game tactics, and it is a factor that the players can use to their advantage. FIFA recommends a pitch size of 114x74 yards. However, this is a rather large pitch and it is recommended to play footroll in a smaller pitch (100 x 64 yards) to make the gameplay more fun.
 
-\RulebookImage{images/image13.png}
-
-\emph{The allowed football pitch sizes and pitch element definitions.}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image13.png}
+\caption{The allowed football pitch sizes and pitch element definitions.}
+\end{figure}
 
 \paragraph{Measurement of Distances}
 
 Some game actions require the measurement of distances. All distances are measured in yards (cells in the grid). To measure distances, the \emph{manhattan }distance is used (see below). The distances are measured by making use of the grid. The ball trajectory, however, is not affected by the grid geometry and follows a straight trajectory.
 
-\RulebookImage{images/image21.png}
-
-\emph{The manhattan distance is defined as the length of the minimum path between two points following right angle (orthogonal) trajectories. Diagonal trajectories are prohibited. There is more than one possible minimum path, but all have the same length (the blue and green paths have the same manhattan length). The use of the manhattan distance avoids the fact that diagonal movements are faster than orthogonal movements in a grid.}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image21.png}
+\caption{The manhattan distance is defined as the length of the minimum path between two points following right angle (orthogonal) trajectories. Diagonal trajectories are prohibited. There is more than one possible minimum path, but all have the same length (the blue and green paths have the same manhattan length). The use of the manhattan distance avoids the fact that diagonal movements are faster than orthogonal movements in a grid.}
+\end{figure}
 
 A manhattan distance has two components (x, y). \emph{x }corresponds to the component in the direction of the long axis of the football field and \emph{y }corresponds to the component in the direction of the short axis of the football field.
 
@@ -328,21 +342,23 @@ The scored skills are the following:
 
 \subsection{\textbf{The Dice}}
 
-\paragraph{Dice Roll Over 100 (D100\textbf{)}}
+\paragraph{Dice Roll Over 100 (D100)}
 
 Most actions are resolved using a dice roll over 100 (D100). The value is obtained by rolling two 10-sided dice, one for the tens and another one for the units. The two dice must be distinguishable. The obtained value has the range [0, 99] and represents the percentage of the skill value achieved.
 
-\paragraph{Dice Roll Over 8 (D8\textbf{)}}
+\paragraph{Dice Roll Over 8 (D8)}
 
 Some actions need to determine a direction. To this end, a dice roll over 8 (D8) is used. The value D8 has a range [1, 8], 1 represents the direction towards the player's side of the field, and 8 is the direction toward the opponent's side of the field.
 
+\begin{figure}[H]
+\centering
 Opponent's side
-
-\RulebookImage{images/image10.png}
-
+\includegraphics[width=0.55\textwidth]{images/image10.png}
 Own's side
+\caption{Direction determination.}
+\end{figure}
 
-\textbf{Fouls Dice}
+\paragraph{Fouls Dice}
 
 Fouls are resolved using a special 6-sided dice.
 
@@ -366,7 +382,7 @@ Its interpretation is the following:
 \end{tabular}
 \end{center}
 
-\paragraph{C\textbf{ards Dice}}
+\paragraph{Cards Dice}
 
 To determine the color of the card (yellow for booking, red for sending off) is determined by a 6-sided dice:
 
@@ -392,7 +408,7 @@ Its interpretation is the following:
 
 All operations are rounded to the nearest integer.
 
-\textbf{Action Score}
+\paragraph{Action Score}
 
 A dice roll over 100 (D100) is used to determine the score of an action. The value of the dice roll represents the percentage (\%) that has been achieved of the footballer's skill value \emph{S} in that action:
 
@@ -400,9 +416,9 @@ A dice roll over 100 (D100) is used to determine the score of an action. The val
 $A = \frac{D_{100}}{100} \cdot S$
 \end{formulabox}
 
-\textbf{Action Result}
+\paragraph{Action Result}
 
-\textbf{Success or failure}
+\paragraph{Success or failure}
 
 The action result \emph{R} can be calculated as the difference between the action score \emph{A} and the difficulty \emph{D }of that action:
 
@@ -415,7 +431,7 @@ $R = A - D$
 \item An action \textbf{fails} if the action score \emph{A} is lower than the difficulty \emph{D} or \textbf{R < 0}
 \end{itemize}
 
-\textbf{Error Magnitude}
+\paragraph{Error Magnitude}
 
 If the action fails, the error magnitude \emph{E} is calculated as:
 
@@ -423,7 +439,7 @@ If the action fails, the error magnitude \emph{E} is calculated as:
 $E = D - A$
 \end{formulabox}
 
-\textbf{Success Rate}
+\paragraph{Success Rate}
 
 In some cases, the result of an action is measured as a success rate (the action score \emph{A} over 100) of the maximum achievable result (the complementary of the difficulty \emph{100-D}):
 
@@ -431,7 +447,7 @@ In some cases, the result of an action is measured as a success rate (the action
 $R = \frac{A}{100} \cdot (100 - D)$
 \end{formulabox}
 
-\textbf{Oneself Actions}
+\paragraph{Oneself Actions}
 
 The outcome of some actions only depends on the skill of the footballer. In these cases, the difficulty \emph{D} is the complementary of the skill value \emph{S}:
 
@@ -443,15 +459,17 @@ $D = 101 - S$
 101 guarantees a chance of failure, even with skill value 100.
 \end{note}
 
-\textbf{One-on-One Actions}
+\paragraph{One-on-One Actions}
 
 Some actions are compared to an opponent's action. In this case, the difficulty is the opponent's action score.
 
-\textbf{D = A}\textbf{opponent}
+\begin{formulabox}
+$D = A_{opponent}$
+\end{formulabox}
 
 The player who gets a higher action score wins. In case of a draw, the dice roll is repeated.
 
-\textbf{Modifiers}
+\paragraph{Modifiers}
 
 In certain circumstances, some actions have modifiers that add to the difficulty \emph{D}.
 
@@ -522,9 +540,7 @@ The action resolution phase does not imply the passage of time and all actions a
 An action resolved during the action resolution phase may imply the movement of the ball. The ball, however, does not move during the action resolution phase; but during the movement phase, simultaneously with the footballers.
 \end{note}
 
-\textbf{Action Resolution Phase:}
-
-\vspace{0.5em}
+\subsubsection{Action Resolution Phase}
 
 \begin{rulebox}
 \begin{itemize}
@@ -532,7 +548,7 @@ An action resolved during the action resolution phase may imply the movement of 
 \end{itemize}
 \end{rulebox}
 
-\textbf{Attacking Team Actions:}
+\paragraph{Attacking Team Actions}
 
 \begin{rulebox}
 \begin{itemize}
@@ -543,7 +559,7 @@ An action resolved during the action resolution phase may imply the movement of 
 \end{itemize}
 \end{rulebox}
 
-\paragraph{Defending Team Actions:}
+\paragraph{Defending Team Actions}
 
 \begin{rulebox}
 \begin{itemize}
@@ -559,9 +575,9 @@ An action resolved during the action resolution phase may imply the movement of 
 \end{itemize}
 \end{specialcase}
 
-\paragraph{Movement Phase}
+\subsubsection{Movement Phase}
 
-\textbf{Order of Movement:}
+\paragraph{Order of Movement}
 
 \begin{rulebox}
 \begin{enumerate}
@@ -602,7 +618,7 @@ A defender only blocks an attacker during the action resolution phase (see \emph
 \end{itemize}
 \end{specialcase}
 
-\textbf{Movement Points:}
+\paragraph{Movement Points}
 
 \begin{rulebox}
 \begin{itemize}
@@ -618,15 +634,17 @@ A defender only blocks an attacker during the action resolution phase (see \emph
 \end{itemize}
 \end{rulebox}
 
-\RulebookImage{images/image4.png}
-
-\emph{Turn phases flowchart.}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image4.png}
+\caption{Turn phases flowchart.}
+\end{figure}
 
 \subsection{\textbf{Blocking}}
 
 A defender blocks an attacker's action or movement if the attacker is within the defender's \emph{reach zone }during the action resolution phase. Here are the specific scenarios and their resolutions:
 
-\textbf{Attacker with Possession of the Ball:}
+\paragraph{Attacker with Possession of the Ball}
 
 \begin{rulebox}
 \begin{itemize}
@@ -635,7 +653,7 @@ A defender blocks an attacker's action or movement if the attacker is within the
 \end{itemize}
 \end{rulebox}
 
-\textbf{Attacker without Possession of the Ball:}
+\paragraph{Attacker without Possession of the Ball}
 
 \begin{rulebox}
 \begin{itemize}
@@ -643,7 +661,7 @@ A defender blocks an attacker's action or movement if the attacker is within the
 \end{itemize}
 \end{rulebox}
 
-\textbf{Defender within Reach of the Attacker with Possession:}
+\paragraph{Defender within Reach of the Attacker with Possession}
 
 \begin{rulebox}
 \begin{itemize}
@@ -681,7 +699,7 @@ If a pass receiver has a defender in their \emph{reach zone} when they reach the
 \end{itemize}
 \end{rulebox}
 
-\paragraph{Low\textbf{ passes}}
+\paragraph{Low passes}
 
 \begin{rulebox}
 \begin{itemize}
@@ -755,7 +773,7 @@ A \emph{one-touch} action is \textbf{not} possible with a forward pass. The \emp
 The advantage of \emph{one-touch }actions is that they are resolved before the movement phase, preventing the defenders from adjusting their position, including the goalkeeper.
 \end{hint}
 
-\paragraph{Indirect Free-kick}
+\subsection{Indirect Free-kick}
 
 \begin{rulebox}
 \begin{itemize}
@@ -763,7 +781,7 @@ The advantage of \emph{one-touch }actions is that they are resolved before the m
 \end{itemize}
 \end{rulebox}
 
-\paragraph{Direct Free-kick}
+\subsection{Direct Free-kick}
 
 \begin{rulebox}
 \begin{itemize}
@@ -772,7 +790,7 @@ The advantage of \emph{one-touch }actions is that they are resolved before the m
 \end{itemize}
 \end{rulebox}
 
-\paragraph{Corner kick}
+\subsection{Corner kick}
 
 \begin{rulebox}
 \begin{itemize}
@@ -795,7 +813,7 @@ An Olympic goal (scoring directly from a corner kick) is highly improbable unles
 
 \subsection{Offside}
 
-Offside rules:
+
 
 \begin{rulebox}
 \begin{itemize}
@@ -825,7 +843,7 @@ The attacker \textbf{cannot} perform a \emph{one-touch} action in this case, lik
 
 When a defender is within the \emph{reach zone} of the receiver of a pass, control of the ball must be determined as follows:
 
-\textbf{Determining Control:}
+\paragraph{Determining Control}
 
 \begin{rulebox}
 \begin{itemize}
@@ -836,7 +854,7 @@ When a defender is within the \emph{reach zone} of the receiver of a pass, contr
 \end{itemize}
 \end{rulebox}
 
-\textbf{Actions After Gaining Control:}
+\paragraph{Actions After Gaining Control}
 
 \begin{rulebox}
 \begin{itemize}
@@ -861,7 +879,7 @@ A \emph{dead ball} occurs when a ball is not possessed by any footballer, after 
 
 \emph{Fouls} can only be committed by a defender or an attacker in a \textbf{one-on-one action} against a defender (not during passes or shots).
 
-\textbf{Involuntary Foul:}
+\paragraph{Involuntary Foul}
 
 \begin{rulebox}
 \begin{itemize}
@@ -870,7 +888,7 @@ A \emph{dead ball} occurs when a ball is not possessed by any footballer, after 
 \end{itemize}
 \end{rulebox}
 
-\textbf{Voluntary Foul:}
+\paragraph{Voluntary Foul}
 
 \begin{rulebox}
 \begin{itemize}
@@ -900,7 +918,7 @@ Interpreting the foul is free depending on the situation (e.g., illegal tackle, 
 
 \subsection{Injuries}
 
-\textbf{Injuries after a foul}
+\paragraph{Injuries after a foul}
 
 \begin{rulebox}
 \begin{itemize}
@@ -908,7 +926,7 @@ Interpreting the foul is free depending on the situation (e.g., illegal tackle, 
 \end{itemize}
 \end{rulebox}
 
-\textbf{Self-inflicted injuries}
+\paragraph{Self-inflicted injuries}
 
 \begin{rulebox}
 \begin{itemize}
@@ -916,7 +934,7 @@ Interpreting the foul is free depending on the situation (e.g., illegal tackle, 
 \end{itemize}
 \end{rulebox}
 
-\textbf{Resolving injuries}
+\paragraph{Resolving injuries}
 
 \begin{rulebox}
 \begin{itemize}
@@ -942,7 +960,7 @@ Lay the pawn down on the board to indicate an injury.
 
 \subsection{\textbf{Shooting at Goal}}
 
-\textbf{Sequence of Actions}:
+\paragraph{Sequence of Actions}
 
 \begin{rulebox}
 \begin{enumerate}
@@ -964,7 +982,7 @@ If the goalkeeper succeeds in reaching the ball:
 \end{enumerate}
 \end{rulebox}
 
-\textbf{Goal} \textbf{Conditions}:
+\paragraph{Goal Conditions}
 
 \begin{rulebox}
 \begin{itemize}
@@ -973,17 +991,16 @@ If the goalkeeper succeeds in reaching the ball:
 \end{itemize}
 \end{rulebox}
 
-\textbf{Other Considerations}:
+\paragraph{Other Considerations}
 
 \begin{rulebox}
 \begin{itemize}
 \item A \emph{shot} can only be performed if the attacker possessed the ball in the previous turn.
 \item If the attacker receives the \emph{pass} in this turn, only the following \emph{one-touch} actions can be performed:
-\end{itemize}
-
 \begin{itemize}
 \item \emph{Finish} (from a \emph{low-pass})
 \item \emph{Offensive-header} (from a \emph{high-pass})
+\end{itemize}
 \end{itemize}
 
 \begin{itemize}
@@ -992,10 +1009,12 @@ If the goalkeeper succeeds in reaching the ball:
 \end{rulebox}
 
 \begin{specialcase}
+\textbf{No goalkeeper but a defender is at the goal line:}
 \begin{itemize}
-\item \textbf{No goalkeeper but a defender is at the goal line: }The defender uses their \emph{intercept} skill with a higher difficulty (see \emph{reach} action).
-\item \textbf{The goalkeeper is not at the goal line, but inside the penalty area: }
+\item The defender uses their \emph{intercept} skill with a higher difficulty (see \emph{reach} action).
 \end{itemize}
+
+\textbf{The goalkeeper is not at the goal line, but inside the penalty area:}
 
 \begin{itemize}
 \item The goalkeeper cannot \emph{reach}, but can \emph{intercept }with a modification of +20, like with a \emph{pass }(\emph{high-pass or low-pass})\emph{.}
@@ -1176,13 +1195,15 @@ It is intercepting the ball by a defender in a pass or shot.
 \item A \emph{high-pass} can be intercepted only if the defender is 2 yards or fewer from the attacker (see figure 4).
 \end{itemize}
 
-\RulebookImage{images/image12.png}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image12.png}
 
-\RulebookImage{images/image19.png}
+\includegraphics[width=0.55\textwidth]{images/image19.png}
 
-\RulebookImage{images/image6.png}
-
-\emph{If the destination of the pass is in one of the red cells, the pass may be intercepted by the defender.}
+\includegraphics[width=0.55\textwidth]{images/image6.png}
+\caption{If the destination of the pass is in one of the red cells, the pass may be intercepted by the defender.}
+\end{figure}
 
 \begin{itemize}
 \item The defender's \emph{intercept }result has to overcome the pass or shot score.
@@ -1356,13 +1377,17 @@ $R = A - D$
 You can use the last row of the grid of the field and the grid inside the goal as a reference.
 \end{hint}
 
-\RulebookImage{images/image16.png}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image16.png}
+\caption{The ball can be placed at a target R/5 cells from the closest target from the attacker (dashed circle in this example). This is, the ball can be displaced 5 points per cell until all action points R have been exhausted. The attacker can decide on any other closer target depending on the goalkeeper's position.}
+\end{figure}
 
-\emph{The ball can be placed at a target R/5 cells from the closest target from the attacker (dashed circle in this example). This is, the ball can be displaced 5 points per cell until all action points R have been exhausted. The attacker can decide on any other closer target depending on the goalkeeper's position.}
-
-\RulebookImage{images/image14.png}
-
-\textbf{\emph{For example}}\emph{, if the attacker is shooting from the left and the closest target is the dashed circle and the action result is R=18, the attacker can choose any target in green with a target threshold lower than R. The target thresholds are given by their distance from the closest target at a rate of 5 points per cell. A wise attacker will choose a target far from the goalkeeper position. Remember, that the position of the goalkeeper is relevant to the gameplay.}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image14.png}
+\caption{\textbf{\emph{For example}}, if the attacker is shooting from the left and the closest target is the dashed circle and the action result is R=18, the attacker can choose any target in green with a target threshold lower than R. The target thresholds are given by their distance from the closest target at a rate of 5 points per cell. A wise attacker will choose a target far from the goalkeeper position. Remember, that the position of the goalkeeper is relevant to the gameplay.}
+\end{figure}
 
 \actionsep
 \textbf{Draw: }
@@ -1382,9 +1407,11 @@ You can use the last row of the grid of the field and the grid inside the goal a
 \item If the \emph{rebound }goes towards the goal, the goalkeeper has to \emph{reach }(and \emph{catch}) the ball. The \emph{target }position is determined by the D8 dice roll value, respect to the \emph{closest target} (see Figure 8):
 \end{itemize}
 
-\RulebookImage{images/image8.png}
-
-\emph{For example, if the closest target is the dashed circle and the D}\emph{8}\emph{ dice roll equals 8, the target placement is the cell indicated by the ball.}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image8.png}
+\caption{For example, if the closest target is the dashed circle and the D8 dice roll equals 8, the target placement is the cell indicated by the ball.}
+\end{figure}
 
 \actionsep
 \textbf{Failure: }
@@ -1448,9 +1475,11 @@ Defenders in the reach zone of the virtual position cannot intercept the ball.
 To perform an \emph{orthogonal move} (x, y), swap x and y components and invert the direction of one of the two components. Two possible directions can be freely chosen: (-y, x) or (y, -x).
 \end{hint}
 
-\RulebookImage{images/image5.png}
-
-\textbf{\emph{For example}}\emph{. The shot follows a curved trajectory towards the goal at a distance L = (22, 9). Considering A=100, the effect is 100\% of L/2, resulting in R = (11, 4). The two possible virtual positions are at a distance R moving orthogonally, this is (-4, 11) or (4, -11).}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image5.png}
+\caption{\textbf{\emph{For example}}. The shot follows a curved trajectory towards the goal at a distance L = (22, 9). Considering A=100, the effect is 100\% of L/2, resulting in R = (11, 4). The two possible virtual positions are at a distance R moving orthogonally, this is (-4, 11) or (4, -11).}
+\end{figure}
 
 \subsection{\textbf{Penalty}}
 
@@ -1468,7 +1497,7 @@ To perform an \emph{orthogonal move} (x, y), swap x and y components and invert 
 \item Only a maximum of wall defenders are effective, depending on the apparent size of the goal from the shooting position. The \emph{maximum effective wall defenders} is given by the shot difficulty (the value in the grid cell):
 \end{itemize}
 
-\textbf{Maximum effective wall defenders }\textbf{(N}\textbf{eff}\textbf{)}\textbf{:}
+\paragraph{Maximum effective wall defenders (Neff)}
 
 \begin{itemize}
 \item Shot difficulty = [01,  \textbf{20]} $\rightarrow$ \textbf{5}
@@ -1586,9 +1615,11 @@ If the defender of the goal is not the goalkeeper but another defender:
 The goalkeeper's position is critical to the gameplay!
 \end{note}
 
-\RulebookImage{images/image7.png}
-
-\emph{The difficulty of reaching the ball is 10 times the distance between the goalkeeper and the target position (in this example 70). }
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{images/image7.png}
+\caption{The difficulty of reaching the ball is 10 times the distance between the goalkeeper and the target position (in this example 70).}
+\end{figure}
 
 \actionsep
 \textbf{Success: }
