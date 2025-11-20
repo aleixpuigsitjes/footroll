@@ -1,0 +1,16 @@
+Yarda = 0.9144 m
+Inch = 2.54cm = 25.4mm
+
+FIFA max 130x100y
+FIFA min 100x50y
+
+Punt mig simmètric 114x74y
+
+Camp Nou 105x68m = 114x74y
+
+Scale 1 yard : 0.5 inch (pawns 0.5 inch)
+
+Print size with margins: 119.07x77.35y = 59.535x38.675" = 60x39"
+
+A0 = 841 x 1189 mm =33.1x46.8"
+2A0 = 1189 x 1682 mm = 46.8x66.2"
