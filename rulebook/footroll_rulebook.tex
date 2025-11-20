@@ -16,6 +16,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{float}
+\usepackage{amsmath}
 \usepackage[font=it]{caption}
 \usepackage[export]{adjustbox} % For valign=c in includegraphics
 
@@ -258,7 +259,7 @@ FIFA does not specify a fixed size of the pitch. Instead, it limits the pitch to
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.0\textwidth]{images/image13.png}
+\includegraphics[width=0.7\textwidth]{images/image13.png}
 \caption{The allowed football pitch sizes and pitch element definitions.}
 \end{figure}
 
@@ -399,6 +400,8 @@ Its interpretation is the following:
 
 \subsection{\textbf{Resolution of Actions}}
 
+Actions are resolved by dice rolls and formulas. Following a generic interpretation of these formulas is provided.
+
 All operations are rounded to the nearest integer.
 
 \paragraph{Action Score}
@@ -429,8 +432,10 @@ $R = A - D$
 If the action fails, the error magnitude \emph{E} is calculated as:
 
 \begin{formulabox}
-$E = D - A$
+$E = k \cdot (D - A)$
 \end{formulabox}
+
+where \emph{k} is a scaling factor that varies depending on the action.
 
 \paragraph{Success Rate}
 
@@ -573,9 +578,9 @@ An action resolved during the action resolution phase may imply the movement of 
 \paragraph{Order of Movement}
 
 \begin{rulebox}
-\begin{enumerate}
+\begin{itemize}
 \item The movement phase begins with the ball's movement, either through a pass or by conduction.
-\end{enumerate}
+\end{itemize}
 \end{rulebox}
 
 \begin{note}
@@ -599,10 +604,10 @@ A defender only blocks an attacker during the action resolution phase (see \emph
 \end{note}
 
 \begin{rulebox}
-\begin{enumerate}
+\begin{itemize}
 \item Following the ball's movement, the attacking team moves their footballers without possession.
 \item After the attacking team has moved their footballers, the defending team moves their footballers.
-\end{enumerate}
+\end{itemize}
 \end{rulebox}
 
 \begin{specialcase}
@@ -697,8 +702,8 @@ If a pass receiver has a defender in their \emph{reach zone} when they reach the
 \begin{rulebox}
 \begin{itemize}
 \item A \emph{low-pass} is a pass shorter than or equal to 30 yards.
-\item A \emph{low-pass} is resolved automatically if the distance is shorter than or equal to 5 yards.
-\item A \emph{low-pass} longer than 5 yards has to be resolved with a die roll using the \emph{low-pass} skill.
+\item A \emph{low-pass} is automatically successfully resolved if the distance is shorter than the maximum distance allowed by the \emph{low-pass} skill.
+\item A \emph{low-pass} longer than the maximum distance has to be resolved with a die roll using the \emph{low-pass} skill.
 \end{itemize}
 \end{rulebox}
 
@@ -1499,7 +1504,7 @@ Defenders in the reach zone of the virtual position cannot intercept the ball.
 \end{note}
 
 \begin{hint}
-To perform an \emph{orthogonal move} (x, y), swap x and y components and invert the direction of one of the two components. Two possible directions can be freely chosen: (-y, x) or (y, -x).
+To perform an \emph{orthogonal move} (x, y) in a grid, swap x and y components and invert the direction of one of the two components. Two possible directions can be freely chosen: (-y, x) or (y, -x).
 \end{hint}
 
 \begin{figure}[H]
@@ -1784,5 +1789,101 @@ Own's side
 \end{tabularx}
 \end{center}
 
+\clearpage
+\section{Annex A: Shot difficulty values calculation}
+
+\subsection{Overview}
+
+This document explains, for information purposes only, the formula used to pre-compute the \textbf{difficulty} of a shot encoded in the grid values. It is based on:
+
+\begin{itemize}
+    \item the Euclidean distance to the target,
+    \item the angular aperture available,
+\end{itemize}
+
+The computation proceeds in four steps: distance, aperture, normalization, and combination.
+
+\subsection{Distance}
+
+Given horizontal and vertical offsets $(dx, dy)$, the raw Euclidean distance is:
+
+\[
+d = \sqrt{dx^{2} + dy^{2}}
+\]
+
+This distance is normalized by the maximum possible distance on the field:
+
+\[
+d_{\text{norm}} =
+\frac{
+    d
+}{
+    \sqrt{\left(\frac{W_f}{2}\right)^{2} + \left(\frac{H_f}{2}\right)^{2}}
+}
+\]
+
+Here, $W_f$ and $H_f$ represent the maximum field width and height in cells.
+
+\subsection{Aperture}
+
+The \textbf{aperture} models how wide the goal appears from the shooter's perspective.  
+If $W_g$ is the goal width, the aperture is computed using two arctangents:
+
+\[
+a =
+\begin{cases}
+\arctan\!\left(\dfrac{dy + \frac{W_g}{2}}{dx}\right)
+-
+\arctan\!\left(\dfrac{dy - \frac{W_g}{2}}{dx}\right),
+& dx \neq 0 \\[10pt]
+0, & dx = 0.
+\end{cases}
+\]
+
+The aperture is normalized to the range $[0, 1]$ by dividing by $\pi$:
+
+\[
+a_{\text{norm}} = \frac{a}{\pi}
+\]
+
+\subsection{Difficulty Components}
+
+Two difficulty components are compared:
+
+\[
+D_1 = d_{\text{norm}}, \qquad
+D_2 = (1 - a_{\text{norm}})^{15}
+\]
+
+\begin{itemize}
+    \item $D_1$ increases with distance.
+    \item $D_2$ increases sharply when the aperture becomes small, because the exponent $15$ creates a strong non-linearity. This value is experimental.
+\end{itemize}
+
+\subsection{Final Difficulty}
+
+The difficulty is the maximum of the two components, scaled to $[0, 100]$:
+
+\[
+D = 100 \cdot \max(D_1,\, D_2)
+\]
+
+A final clipping ensures the difficulty stays within bounds:
+
+\[
+D_{\text{final}} =
+\min\left(
+    \max(D,\, 1),\,
+    100
+\right)
+\]
+
+This value is the final difficulty score.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{images/shot_difficulty_heat_map.png}
+\caption{Shot difficulty heat map.}
+\end{figure}
 
 \end{document}
