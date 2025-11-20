@@ -512,11 +512,10 @@ If, after placing the footballers of the defending team, there are footballers o
 \end{specialcase}
 
 \begin{note}
-Place the goalkeeper at the last row of the field in front of the goal line.
-\end{note}
-
-\begin{note}
-This sequence applies to all restarts, including \emph{kick-off}, after an \emph{out }(\emph{throw-in}, \emph{corner-kick, goal-kick}) or after a \emph{foul} (\emph{free-kick}).
+\begin{itemize}
+\item Place the goalkeeper at the last row of the field in front of the goal line.
+\item This sequence applies to all restarts, including \emph{kick-off}, after an \emph{out }(\emph{throw-in}, \emph{corner-kick, goal-kick}) or after a \emph{foul} (\emph{free-kick}).
+\end{itemize}
 \end{note}
 
 \subsection{\textbf{Turn Phases}}
@@ -531,11 +530,10 @@ The game is divided into turns, each consisting of two phases:
 \end{rulebox}
 
 \begin{note}
-The action resolution phase does not imply the passage of time and all actions are considered to occur simultaneously.
-\end{note}
-
-\begin{note}
-An action resolved during the action resolution phase may imply the movement of the ball. The ball, however, does not move during the action resolution phase; but during the movement phase, simultaneously with the footballers.
+\begin{itemize}
+\item The action resolution phase does not imply the passage of time and all actions are considered to occur simultaneously.
+\item An action resolved during the action resolution phase may imply the movement of the ball. The ball, however, does not move during the action resolution phase; but during the movement phase, simultaneously with the footballers.
+\end{itemize}
 \end{note}
 
 \subsubsection{Action Resolution Phase}
@@ -580,31 +578,8 @@ An action resolved during the action resolution phase may imply the movement of 
 \begin{rulebox}
 \begin{itemize}
 \item The movement phase begins with the ball's movement, either through a pass or by conduction.
-\end{itemize}
-\end{rulebox}
-
-\begin{note}
-The receiver of a pass cannot move with possession of the ball in the same turn when the ball is received, as the movement of the ball and footballers occur simultaneously and the ball cannot move further.
-\end{note}
-
-\begin{rulebox}
-\begin{itemize}
 \item The movement of the attacker possessing the ball is not blocked by the presence of a defender in its trajectory during the movement phase.
-\end{itemize}
-\end{rulebox}
-
-\begin{rulebox}
-\begin{itemize}
 \item A defender is never blocked and can move freely during the movement phase.
-\end{itemize}
-\end{rulebox}
-
-\begin{note}
-A defender only blocks an attacker during the action resolution phase (see \emph{blocking} section). The rational for this is that the movement of the attacker and the defender occurs simultaneously, but it is resolved sequentially. A defender may prefer to retreat before being forced to tackle.
-\end{note}
-
-\begin{rulebox}
-\begin{itemize}
 \item Following the ball's movement, the attacking team moves their footballers without possession.
 \item After the attacking team has moved their footballers, the defending team moves their footballers.
 \end{itemize}
@@ -616,17 +591,19 @@ A defender only blocks an attacker during the action resolution phase (see \emph
 \end{itemize}
 \end{specialcase}
 
+\begin{note}
+\begin{itemize}
+\item The receiver of a pass cannot move with possession of the ball in the same turn when the ball is received, as the movement of the ball and footballers occur simultaneously and the ball cannot move further.
+\item A defender only blocks an attacker during the action resolution phase (see \emph{blocking} section). The rational for this is that the movement of the attacker and the defender occurs simultaneously, but it is resolved sequentially. A defender may prefer to retreat before being forced to tackle.
+\end{itemize}
+\end{note}
+
 \paragraph{Movement Points}
 
 \begin{rulebox}
 \begin{itemize}
 \item Each footballer has as many movement points as their \emph{velocity} skill divided by 10.
 \item A footballer can move one yard (one cell on the board) per turn for each movement point.
-\end{itemize}
-\end{rulebox}
-
-\begin{rulebox}
-\begin{itemize}
 \item Footballers can move fewer yards than their movement points allow, or choose not to move at all during the movement phase.
 \item The movement distance is measured using the manhattan distance. Only horizontal and vertical movement steps are allowed. Diagonal movement steps are forbidden.
 \end{itemize}
@@ -668,11 +645,10 @@ A defender blocks an attacker's action or movement if the attacker is within the
 \end{rulebox}
 
 \begin{hint}
-Be aware that blocking is an action that requires dice rolls. A failure can expose your defense, and there is the possibility of committing a foul. Block only when necessary.
-\end{hint}
-
-\begin{hint}
-Place the defender one yard away from the attacker's position for a "vigilant" non-blocking defensive position.
+\begin{itemize}
+\item Be aware that blocking is an action that requires dice rolls. A failure can expose your defense, and there is the possibility of committing a foul. Block only when necessary.
+\item Place the defender one yard away from the attacker's position for a "vigilant" non-blocking defensive position.
+\end{itemize}
 \end{hint}
 
 \subsection{Passes}
@@ -680,22 +656,16 @@ Place the defender one yard away from the attacker's position for a "vigilant" n
 \begin{rulebox}
 \begin{itemize}
 \item A pass is performed towards a position, not necessarily where a footballer is present.
-\end{itemize}
-\end{rulebox}
-
-\begin{note}
-A forward pass is possible, where the ball's movement anticipates the receiver's movement. An attacker can make a forward pass to themselves.
-\end{note}
-
-\begin{note}
-If a pass receiver has a defender in their \emph{reach zone} when they reach the ball, a \emph{challenged ball }must be resolved to determine who takes control (see \emph{challenged ball }section).
-\end{note}
-
-\begin{rulebox}
-\begin{itemize}
 \item There are two types of passes: \emph{low-passes} and \emph{high-passes}.
 \end{itemize}
 \end{rulebox}
+
+\begin{note}
+\begin{itemize}
+\item A forward pass is possible, where the ball's movement anticipates the receiver's movement. An attacker can make a forward pass to themselves.
+\item If a pass receiver has a defender in their \emph{reach zone} when they reach the ball, a \emph{challenged ball }must be resolved to determine who takes control (see \emph{challenged ball }section).
+\end{itemize}
+\end{note}
 
 \paragraph{Low passes}
 
@@ -820,10 +790,6 @@ An Olympic goal (scoring directly from a corner kick) is highly improbable unles
 \end{itemize}
 \end{rulebox}
 
-\begin{note}
-In Footroll, due to its turn-based nature, defenders move after attackers in the Movement Phase, enabling them to systematically advance their defensive line in subsequent turns and force attackers into offside positions before the Action Resolution Phase.
-\end{note}
-
 To ensure fair play, the following rule apply:
 
 \begin{specialcase}
@@ -834,7 +800,10 @@ To ensure fair play, the following rule apply:
 \end{specialcase}
 
 \begin{note}
-The attacker \textbf{cannot} perform a \emph{one-touch} action in this case, like in forward passes.
+\begin{itemize}
+\item In Footroll, due to its turn-based nature, defenders move after attackers in the Movement Phase, enabling them to systematically advance their defensive line in subsequent turns and force attackers into offside positions before the Action Resolution Phase.
+\item The attacker \textbf{cannot} perform a \emph{one-touch} action in this case, like in forward passes.
+\end{itemize}
 \end{note}
 
 \subsection{\textbf{Challenged ball}}
@@ -1202,6 +1171,8 @@ It is intercepting the ball by a defender in a pass or shot.
 \begin{itemize}
 \item A \emph{low-pass} or a \emph{shot-at-goal} can be intercepted if the trajectory of the ball as a straight line goes through the \emph{reach zone} of the defender.
 \item A \emph{high-pass} can be intercepted only if the defender is 2 yards or fewer from the attacker (see figure 4).
+\item The defender's \emph{intercept }result has to overcome the pass or shot score.
+\item The goalkeeper can \emph{intercept} inside his box with a modification of +20.
 \end{itemize}
 \end{rulebox}
 
@@ -1212,13 +1183,6 @@ It is intercepting the ball by a defender in a pass or shot.
 \includegraphics[width=0.32\textwidth]{images/image6.png}
 \caption{If the destination of the pass is in one of the red cells, the pass may be intercepted by the defender.}
 \end{figure}
-
-\begin{rulebox}
-\begin{itemize}
-\item The defender's \emph{intercept }result has to overcome the pass or shot score.
-\item The goalkeeper can \emph{intercept} inside his box with a modification of +20.
-\end{itemize}
-\end{rulebox}
 
 \paragraph{Success}
 
@@ -1542,28 +1506,13 @@ To perform an \emph{orthogonal move} (x, y) in a grid, swap x and y components a
 \item Shot difficulty = [26,  \textbf{33] }$\rightarrow$ \textbf{3}
 \item Shot difficulty = [34,  \textbf{50]} $\rightarrow$ \textbf{2}
 \item Shot difficulty = [51, \textbf{100]} $\rightarrow$ \textbf{1}
-\end{itemize}
-\end{rulebox}
-
-\begin{note}
-Note that 20 = 100/5, 25 = 100/4, 33 = 100/3 and 50 = 100/2.
-\end{note}
-
-\begin{rulebox}
-\begin{itemize}
 \item The \emph{difficulty of the free-kick} \emph{D} is the sum of the \emph{difficulty of the shot} \emph{D}\emph{shot} plus the \emph{difficulty of the wall} \emph{D}\emph{wall}.
 \end{itemize}
 
 \begin{formulabox}
 $D = D_{shot} + D_{wall}$
 \end{formulabox}
-\end{rulebox}
 
-\begin{specialcase}
-If the shot has an \emph{effect }that overcomes the wall \emph{D}\emph{wall }= 0.
-\end{specialcase}
-
-\begin{rulebox}
 \begin{itemize}
 \item The difficulty of the wall \emph{D}\emph{wall} is equal to:
 \end{itemize}
@@ -1573,16 +1522,17 @@ $D_{wall} = 20 \cdot \frac{\min(N_{wall}, N_{eff})}{N_{eff}}$
 \end{formulabox}
 \end{rulebox}
 
-\begin{note}
-Placing fewer wall defenders than the \emph{maximum effective wall defenders} reduces the effectiveness of the defensive wall.
-\end{note}
+\begin{specialcase}
+If the shot has an \emph{effect }that overcomes the wall \emph{D}\emph{wall }= 0.
+\end{specialcase}
 
 \begin{note}
-If there are more wall defenders than the \emph{maximum} \emph{number of effective wall defenders}, the excess of wall defenders is useless, unless the shot has an \emph{effect} or in case of an indirect kick.
-\end{note}
-
-\begin{note}
-If the attacker places footballers at the wall position, they similarly count as defenders at the wall.
+\begin{itemize}
+\item Note that 20 = 100/5, 25 = 100/4, 33 = 100/3 and 50 = 100/2.
+\item Placing fewer wall defenders than the \emph{maximum effective wall defenders} reduces the effectiveness of the defensive wall.
+\item If there are more wall defenders than the \emph{maximum} \emph{number of effective wall defenders}, the excess of wall defenders is useless, unless the shot has an \emph{effect} or in case of an indirect kick.
+\item If the attacker places footballers at the wall position, they similarly count as defenders at the wall.
+\end{itemize}
 \end{note}
 
 \paragraph{Success}
