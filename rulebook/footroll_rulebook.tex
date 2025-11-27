@@ -15,6 +15,7 @@
 \usepackage{fancyhdr}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{xltabular}
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage[font=it]{caption}
@@ -1664,6 +1665,10 @@ Upon reaching the ball, the goalkeeper can try to catch or deflect the ball.
 \end{rulebox}
 
 \clearpage
+\appendix
+\titleformat{\section}
+  {\color{footrollblue}\Large\bfseries\uppercase}
+  {Annex \thesection}{1em}{}[\titlerule]
 \section{Actions Cheat Sheet}
 
 \begin{minipage}[t]{0.65\textwidth}
@@ -1704,43 +1709,53 @@ Own's side
 \item \textbf{All operations are rounded to the nearest integer}
 \end{itemize}
 
-\begin{center}
-\small
-\begin{tabularx}{\textwidth}{p{0.15\textwidth}p{0.25\textwidth}p{0.25\textwidth}X}
+\clearpage
+\begingroup
+\tiny
+\renewcommand{\arraystretch}{1.2}
+\begin{xltabular}{\textwidth}{>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}X}
 \toprule
 \textbf{Action} & \textbf{Difficulty} & \textbf{Result} & \textbf{Interpretation} \\
 \midrule
-\textbf{Dribble} & \textbf{D = A}\textbf{tackle/hand-tackle} \newline Hand-tackle: S + 20 & \textbf{A > D $\rightarrow$ success} \newline \textbf{A = D $\rightarrow$ draw} \newline \textbf{A < D $\rightarrow$ failure} & \textbf{Swap, defender's V/2} \newline \textbf{Repeat} \newline \textbf{Swap, attacker's V/2} \\
+\endfirsthead
+\toprule
+\textbf{Action} & \textbf{Difficulty} & \textbf{Result} & \textbf{Interpretation} \\
 \midrule
-\textbf{Feint} & \textbf{D = A}\textbf{tackle/hand-tackle} \newline Hand-tackle: S + 20 & \textbf{A > D $\rightarrow$ success} \newline \textbf{A = D $\rightarrow$ draw} \newline \textbf{A < D $\rightarrow$ failure} & \textbf{Swap, defender's V/2} \newline \textbf{Repeat} \newline \textbf{Swap, attacker's V/2} \\
-\midrule
-\textbf{Tackle} & \textbf{D = A}\textbf{feint} & \textbf{A > D $\rightarrow$ success} \newline \textbf{A = D $\rightarrow$ draw} \newline \textbf{A < D $\rightarrow$ failure} & \textbf{Swap, defender's V/2} \newline \textbf{Repeat} \newline \textbf{Swap, attacker's V/2} \\
-\midrule
-\textbf{Slip} & \textbf{D = A}\textbf{mark} & \textbf{A > D $\rightarrow$ success} \newline \textbf{A = D $\rightarrow$ draw} \newline \textbf{A < D $\rightarrow$ failure} & \textbf{Swap, defender's V/2} \newline \textbf{Repeat} \newline \textbf{Swap, attacker's V/2} \\
-\midrule
-\textbf{Intercept} & \textbf{D = A}\textbf{shot/pass } & \textbf{A $\geq$ D $\rightarrow$ success} \newline \textbf{A < D $\rightarrow$ failure} & \textbf{See shot or pass} \\
-\midrule
-\textbf{Low-pass ($\leq$ 30)}\textbf{(1)} & \textbf{D = L} & \textbf{Success distance:} \newline \textbf{S}\textbf{low-pass}\textbf{ = 50 $\rightarrow$ 5 y} \newline \textbf{S}\textbf{low-pass}\textbf{ = 60 $\rightarrow$ 10 y} \newline \textbf{S}\textbf{low-pass}\textbf{ = 70 $\rightarrow$ 15 y} \newline \textbf{S}\textbf{low-pass}\textbf{ = 80 $\rightarrow$ 20 y} \newline \textbf{S}\textbf{low-pass}\textbf{ = 90 $\rightarrow$ 25 y} \newline \textbf{S}\textbf{low-pass}\textbf{ = 100 $\rightarrow$ 30 y} \newline \textbf{Otherwise:} \newline \textbf{A $\geq$ D $\rightarrow$ success} \newline \textbf{A < D $\rightarrow$ error} \newline \textbf{E = (D -- A)/2} & \textbf{Error direction $\rightarrow$ D}\textbf{8} \\
-\midrule
-\textbf{High-pass (> 30)} \newline \textbf{Goal-kick} & \textbf{D = L} & \textbf{A $\geq$ D $\rightarrow$ success} \newline \textbf{A < D $\rightarrow$ error} \newline \textbf{E = (D -- A)/2} & \textbf{Error direction $\rightarrow$ D}\textbf{8} \\
-\midrule
-\textbf{Throw-in} \newline \textbf{Hand-pass} & \textbf{D = 2\textperiodcentered{}L} & \textbf{A $\geq$ D $\rightarrow$ success} \newline \textbf{A < D $\rightarrow$ error} \newline \textbf{E = (D -- A)/2} & \textbf{Error direction $\rightarrow$ D}\textbf{8} \\
-\midrule
-\textbf{Shot} \newline \textbf{Penalty} \newline \textbf{Finish }\textbf{(1)(L)} \newline \textbf{Scissors-kick }\textbf{(1) (H)} \newline \textbf{Offensive header }\textbf{(1) (H)} & \textbf{D = D}\textbf{shot } \newline \textbf{Scissors-kick: } \newline \textbf{D = D}\textbf{shot}\textbf{ + 20} \newline \textbf{Offensive header:} \newline \textbf{D = 2\textperiodcentered{}D}\textbf{shot} & \textbf{Shot placement:} \newline \textbf{A > D $\rightarrow$ GK reach?} \newline \textbf{A = D $\rightarrow$ Post} \newline \textbf{A < D $\rightarrow$ Out} \newline \textbf{Target displacement:} \newline \textbf{R = A-D} \newline \textbf{Shot/header power:} \newline \textbf{R = A/100 \textperiodcentered{} (100 - D)} & \textbf{Displacement: R/5 cells }from \emph{closest} target \newline \RulebookInlineImage[0.18\textwidth]{images/image16.png} \newline \textbf{Post: Direction $\rightarrow$ D}\textbf{8} \newline D8=[1,3]: back to field \newline D8=[4,5]: outside of field \newline D8=[6,8]: towards goal \newline \RulebookInlineImage[0.18\textwidth]{images/image8.png} \\
-\midrule
-\textbf{Free-kick} & \textbf{D = D}\textbf{shot}\textbf{ + D}\textbf{wall} \newline \RulebookInlineImage[0.18\textwidth]{images/image1.png} \RulebookInlineImage[0.18\textwidth]{images/image2.png} \textbf{: }\textbf{wall defenders} \newline \RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{: }\textbf{effective wall defenders} \newline \textbf{D}\textbf{shot}\textbf{= [0}\textbf{1, 20] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 5 } \newline \textbf{D}\textbf{shot}\textbf{= [}\textbf{21, 25] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 4} \newline \textbf{D}\textbf{shot}\textbf{= [}\textbf{26, 33] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 3 } \newline \textbf{D}\textbf{shot}\textbf{=}\textbf{ [34, 50] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 2} \newline \textbf{D}\textbf{shot}\textbf{= [}\textbf{51, 100] $\rightarrow$ }\RulebookInlineImage[0.18\textwidth]{images/image3.png} \textbf{= 1} & \textbf{Shot placement:} \newline \textbf{A > D $\rightarrow$ GK reach?} \newline \textbf{A = D $\rightarrow$ Post} \newline \textbf{A < D and:} \newline \textbf{ A $\geq$ D}\textbf{shot}\textbf{$\rightarrow$ Wall} \newline \textbf{ A < D}\textbf{shot}\textbf{ $\rightarrow$ Out} \newline \textbf{Target displacement:} \newline \textbf{R = A-D} \newline \textbf{Shot power:} \newline \textbf{R = A/100 \textperiodcentered{} (100 - D)} & \textbf{See shot} \newline \textbf{A hit to the wall is resolved as a failed }\textbf{\emph{pass}} \\
-\midrule
-\textbf{Effect} & \textbf{D = L/2} & \textbf{Displacement:} \newline \textbf{R}\textbf{X}\textbf{ = A/100 \textperiodcentered{} L}\textbf{X}\textbf{/2} \newline \textbf{R}\textbf{Y}\textbf{ = A/100 \textperiodcentered{} L}\textbf{Y}\textbf{/2 } & \textbf{Original position:} \newline \textbf{ (O}\textbf{x}\textbf{, O}\textbf{y}\textbf{)} \newline \textbf{Virtual positions:} \newline \textbf{(O}\textbf{x}\textbf{-R}\textbf{y}\textbf{, O}\textbf{y}\textbf{+R}\textbf{x}\textbf{) or} \newline \textbf{(O}\textbf{x}\textbf{+}\textbf{R}\textbf{y}\textbf{, O}\textbf{y}\textbf{-}\textbf{R}\textbf{x}\textbf{)} \\
-\midrule
-\textbf{Reach} & \textbf{GK: D = 10\textperiodcentered{}L} \newline \textbf{Defender: D = 33\textperiodcentered{}L} \newline \textbf{L = distance from GK to target} & \textbf{A $\geq$ D $\rightarrow$ GK catch?} \newline \textbf{A < D $\rightarrow$ goal} & \RulebookInlineImage[0.18\textwidth]{images/image7.png} \\
-\midrule
-\textbf{Catch} & \textbf{D = 2\textperiodcentered{}shot/header power} & \textbf{ A $\geq$ 2\textperiodcentered{}D $\rightarrow$ catch } \newline \textbf{D $\leq$ A < 2\textperiodcentered{}D $\rightarrow$ corner} \newline \textbf{ A < D $\rightarrow$ goal} &  \\
+\endhead
 \bottomrule
-\end{tabularx}
-\end{center}
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{Dribble} & $D = A_{\text{tackle/hand-tackle}}$ \newline \textbf{Hand-tackle:} $S + 20$ & $A > D \rightarrow$ success \newline $A = D \rightarrow$ draw \newline $A < D \rightarrow$ failure & Swap, defender's $V/2$ \newline Repeat \newline Swap, attacker's $V/2$ \\
+\midrule
+\textbf{Feint} & $D = A_{\text{tackle/hand-tackle}}$ \newline \textbf{Hand-tackle:} $S + 20$ & $A > D \rightarrow$ success \newline $A = D \rightarrow$ draw \newline $A < D \rightarrow$ failure & Swap, defender's $V/2$ \newline Repeat \newline Swap, attacker's $V/2$ \\
+\midrule
+\textbf{Tackle} & $D = A_{\text{feint}}$ & $A > D \rightarrow$ success \newline $A = D \rightarrow$ draw \newline $A < D \rightarrow$ failure & Swap, defender's $V/2$ \newline Repeat \newline Swap, attacker's $V/2$ \\
+\midrule
+\textbf{Slip} & $D = A_{\text{mark}}$ & $A > D \rightarrow$ success \newline $A = D \rightarrow$ draw \newline $A < D \rightarrow$ failure & Swap, defender's $V/2$ \newline Repeat \newline Swap, attacker's $V/2$ \\
+\midrule
+\textbf{Intercept} & $D = A_{\text{shot/pass}}$ & $A \geq D \rightarrow$ success \newline $A < D \rightarrow$ failure & See shot or pass \\
+\midrule
+\textbf{Low-pass ($\leq$ 30)}\textsuperscript{(1)} & $D = L$ & \textbf{Success distance:} \newline $S_{\text{low-pass}} = 50 \rightarrow 5$ y \newline $S_{\text{low-pass}} = 60 \rightarrow 10$ y \newline $S_{\text{low-pass}} = 70 \rightarrow 15$ y \newline $S_{\text{low-pass}} = 80 \rightarrow 20$ y \newline $S_{\text{low-pass}} = 90 \rightarrow 25$ y \newline $S_{\text{low-pass}} = 100 \rightarrow 30$ y \newline \textbf{Otherwise:} \newline $A \geq D \rightarrow$ success \newline $A < D \rightarrow$ error \newline $E = (D - A)/2$ & Error direction $\rightarrow$ D8 \\
+\midrule
+\textbf{High-pass (> 30)} \newline \textbf{Goal-kick} & $D = L$ & $A \geq D \rightarrow$ success \newline $A < D \rightarrow$ error \newline $E = (D - A)/2$ & Error direction $\rightarrow$ D8 \\
+\midrule
+\textbf{Throw-in} \newline \textbf{Hand-pass} & $D = 2 \cdot L$ & $A \geq D \rightarrow$ success \newline $A < D \rightarrow$ error \newline $E = (D - A)/2$ & Error direction $\rightarrow$ D8 \\
+\midrule
+\textbf{Shot} \newline \textbf{Penalty} \newline \textbf{Finish }\textsuperscript{(1)(L)} \newline \textbf{Scissors-kick }\textsuperscript{(1)(H)} \newline \textbf{Offensive header }\textsuperscript{(1)(H)} & $D = D_{\text{shot}}$ \newline \textbf{Scissors-kick:} \newline $D = D_{\text{shot}} + 20$ \newline \textbf{Offensive header:} \newline $D = 2 \cdot D_{\text{shot}}$ & \textbf{Shot placement:} \newline $A > D \rightarrow$ GK reach? \newline $A = D \rightarrow$ Post \newline $A < D \rightarrow$ Out \newline \textbf{Target displacement:} \newline $R = A-D$ \newline \textbf{Shot/header power:} \newline $R = A/100 \cdot (100 - D)$ & \textbf{Displacement:} $R/5$ cells from \emph{closest} target \newline \RulebookInlineImage[0.12\textwidth]{images/image16.png} \newline \textbf{Post:} Direction $\rightarrow$ D8 \newline D8=[1,3]: back to field \newline D8=[4,5]: outside of field \newline D8=[6,8]: towards goal \newline \RulebookInlineImage[0.12\textwidth]{images/image8.png} \\
+\midrule
+\textbf{Free-kick} & $D = D_{\text{shot}} + D_{\text{wall}}$ \newline $D_{\text{wall}} = 20 \cdot \frac{\min(N_{\text{wall}}, N_{\text{eff}})}{N_{\text{eff}}}$ \newline $N_{\text{wall}}$ \textbf{:} wall defenders \newline $N_{\text{eff}}$ \textbf{:} effective wall defenders \newline $D_{\text{shot}} = [01, 20] \rightarrow N_{\text{eff}} = 5$ \newline $D_{\text{shot}} = [21, 25] \rightarrow N_{\text{eff}} = 4$ \newline $D_{\text{shot}} = [26, 33] \rightarrow N_{\text{eff}} = 3$ \newline $D_{\text{shot}} = [34, 50] \rightarrow N_{\text{eff}} = 2$ \newline $D_{\text{shot}} = [51, 100] \rightarrow N_{\text{eff}} = 1$ & \textbf{Shot placement:} \newline $A > D \rightarrow$ GK reach? \newline $A = D \rightarrow$ Post \newline $A < D$ and: \newline  $A \geq D_{\text{shot}} \rightarrow$ Wall \newline  $A < D_{\text{shot}} \rightarrow$ Out \newline \textbf{Target displacement:} \newline $R = A-D$ \newline \textbf{Shot power:} \newline $R = A/100 \cdot (100 - D)$ & See shot \newline A hit to the wall is resolved as a failed \emph{pass} \\
+\midrule
+\textbf{Effect} & $D = L/2$ & \textbf{Displacement:} \newline $R_X = A/100 \cdot L_X/2$ \newline $R_Y = A/100 \cdot L_Y/2$ & \textbf{Original position:} \newline  $(O_x, O_y)$ \newline \textbf{Virtual positions:} \newline $(O_x-R_y, O_y+R_x)$ or \newline $(O_x+R_y, O_y-R_x)$ \\
+\midrule
+\textbf{Reach} & \textbf{GK:} $D = 10 \cdot L$ \newline \textbf{Defender:} $D = 33 \cdot L$ \newline $L =$ distance from GK to target & $A \geq D \rightarrow$ GK catch? \newline $A < D \rightarrow$ goal & \RulebookInlineImage[0.12\textwidth]{images/image7.png} \\
+\midrule
+\textbf{Catch} & $D = 2 \cdot \text{shot/header power}$ &  $A \geq 2 \cdot D \rightarrow$ catch \newline $D \leq A < 2 \cdot D \rightarrow$ corner \newline  $A < D \rightarrow$ goal &  \\
+\end{xltabular}
+\endgroup
 
 \clearpage
-\section{Annex A: Shot difficulty values calculation}
+\section{Shot difficulty values calculation}
 
 \subsection{Overview}
 
