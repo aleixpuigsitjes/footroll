@@ -595,7 +595,6 @@ The game is divided into turns, each consisting of two phases:
 \begin{note}
 \begin{itemize}
 \item The receiver of a pass cannot move with possession of the ball in the same turn when the ball is received, as the movement of the ball and footballers occur simultaneously and the ball cannot move further.
-\item A defender only blocks an attacker during the action resolution phase (see \emph{blocking} section). The rational for this is that the movement of the attacker and the defender occurs simultaneously, but it is resolved sequentially. A defender may prefer to retreat before being forced to tackle.
 \end{itemize}
 \end{note}
 
@@ -706,6 +705,7 @@ A defender blocks an attacker's action or movement if the attacker is within the
 \item A \emph{high-pass} must be longer than 30 yards.
 \item A \emph{high-pass} has to be resolved with a die roll using the \emph{high-pass} skill.
 \item A \emph{high-pass} can only be intercepted if a defender is within 2 yards of the footballer with possession and the ball's trajectory intersects the defender's \emph{reach zone}.
+\item A footballer who makes a \emph{high-pass} cannot move during the movement phase of that turn.
 \end{itemize}
 \end{rulebox}
 
@@ -832,9 +832,9 @@ When a defender is within the \emph{reach zone} of the receiver of a pass, contr
 \end{itemize}
 \end{rulebox}
 
-\subsubsection{\textbf{Dead} \textbf{ball}}
+\subsubsection{\textbf{Loose} \textbf{ball}}
 
-A \emph{dead ball} occurs when a ball is not possessed by any footballer, after a failed pass for instance. The following rules apply to resolve which footballer gains control of the ball:
+A \emph{loose ball} occurs when a ball is not possessed by any footballer, after a failed pass for instance. The following rules apply to resolve which footballer gains control of the ball:
 
 \begin{rulebox}
 \begin{itemize}
@@ -939,6 +939,8 @@ Lay the pawn down on the board to indicate an injury.
 
 \begin{specialcase}
 If there is no goalkeeper or any other defender at the goal line, and if the shot is not \emph{intercepted}, a goal is scored if the shooting action succeeds.
+\par\medskip
+A goalkeeper is considered to be at the goal line if the goal line lies within their \emph{reach zone}.
 \end{specialcase}
 
 If the goalkeeper succeeds in reaching the ball:
@@ -1045,9 +1047,8 @@ It is overtaking an opponent without losing possession of the ball.
 \begin{rulebox}
 \begin{itemize}
 \item The attacker overtakes the defender.
-\item The pawns' positions must be swapped.
 \item The defender will lose half of the movement points during this turn.
-\item If, after swapping the pawns' positions, another defender is within the reach zone of the attacker, the attacker can dribble the defender or the defender can tackle the attacker in the same turn.
+\item If another defender is within the reach zone of the attacker, the attacker can dribble the defender or the defender can tackle the attacker in the same turn.
 \end{itemize}
 \end{rulebox}
 
@@ -1056,7 +1057,6 @@ It is overtaking an opponent without losing possession of the ball.
 \begin{rulebox}
 \begin{itemize}
 \item The attacker loses possession of the ball in favor of the defender.
-\item The pawns' positions must be swapped
 \item The attacker loses half of the movement points during this turn.
 \end{itemize}
 \end{rulebox}
@@ -1113,7 +1113,6 @@ It is a defender trying to steal the ball from an attacker.
 \begin{rulebox}
 \begin{itemize}
 \item The defender takes control of the ball.
-\item The pawns' positions must be swapped.
 \item The attacker loses half of the movement points during this turn.
 \end{itemize}
 \end{rulebox}
@@ -1123,6 +1122,7 @@ It is a defender trying to steal the ball from an attacker.
 \begin{rulebox}
 \begin{itemize}
 \item The defender does not take control of the ball.
+\item The blocking is lost and does not take effect.
 \item The defender loses half of the movement points during this turn.
 \end{itemize}
 \end{rulebox}
@@ -1146,7 +1146,6 @@ It is an attacker trying to overcome a defender's mark. It is equivalent to drib
 \begin{rulebox}
 \begin{itemize}
 \item The attacker dodges the defender's mark.
-\item The pawns' positions must be swapped
 \item The defender loses half of the movement points during this turn.
 \item The defender cannot take another action during this turn.
 \end{itemize}
@@ -1157,7 +1156,7 @@ It is an attacker trying to overcome a defender's mark. It is equivalent to drib
 \begin{rulebox}
 \begin{itemize}
 \item The attacker fails to dodge the defender's mark.
-\item The attacker loses half of the movement points during this turn.
+\item The attacker loses all of the movement points during this turn.
 \end{itemize}
 \end{rulebox}
 
@@ -1386,7 +1385,15 @@ You can use the last row of the grid of the field and the grid inside the goal a
 
 \begin{rulebox}
 \begin{itemize}
-\item The ball hits the post
+\item The ball hits the post.
+\item The rebound distance \emph{E} is calculated as:
+\end{itemize}
+
+\begin{formulabox}
+$E = \frac{D - A}{2}$
+\end{formulabox}
+
+\begin{itemize}
 \item The direction of the \emph{rebound }is determined by a D8 dice roll:
 \end{itemize}
 
@@ -1411,9 +1418,6 @@ You can use the last row of the grid of the field and the grid inside the goal a
 
 \begin{rulebox}
 \begin{itemize}
-\begin{formulabox}
-$E = \frac{D - A}{2}$
-\end{formulabox}
 \item The opponent's goalkeeper must put the ball in play through a \emph{goal-kick} action.
 \end{itemize}
 \end{rulebox}

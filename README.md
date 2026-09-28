@@ -66,6 +66,9 @@ It is recommended to use two dice trays to prevent messing up the gameplay when 
 ## Apps
 ### Footroll Pitch Creator
 ### Footroll Simulator
+
+The first playable practice app is in [`apps/`](./apps/README.md), with a shared TypeScript engine, React web interface, Electron desktop shell, and Capacitor iOS project.
+
 ### Footroll Assistant
 
 ## License

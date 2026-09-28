@@ -1,0 +1,35 @@
+{
+  "name": "@footroll/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.cjs",
+  "description": "Footroll desktop simulator",
+  "author": "Aleix Puig Sitjes",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "36.9.5",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.footroll.simulator",
+    "productName": "Footroll",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.cjs"
+    ],
+    "extraResources": [
+      {
+        "from": "../simulator/dist",
+        "to": "web"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.board-games"
+    }
+  }
+}

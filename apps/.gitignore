@@ -1,0 +1,9 @@
+node_modules/
+dist/
+release/
+.DS_Store
+*.tsbuildinfo
+simulator/ios/App/Pods/
+simulator/ios/App/App/public/
+simulator/android/.gradle/
+simulator/android/**/build/
