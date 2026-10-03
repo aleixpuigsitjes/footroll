@@ -2900,13 +2900,6 @@ export function applyCommand(input: Match, command: Command): Match {
           s.pendingPass.to.y !== command.to.y)
       )
         throw new Error("Complete the pass prepared by the successful feint.");
-      const blocker =
-        restart || setPiece ? undefined : blockingDefenders(s, ballPlayer)[0];
-      if (blocker)
-        throw new Error(
-          `${ballPlayer.name} must feint past ${blocker.name} before passing.`,
-        );
-      s.pendingPass = null;
     }
     if (
       !Number.isInteger(command.to.x) ||
@@ -2964,6 +2957,17 @@ export function applyCommand(input: Match, command: Command): Match {
             : setPiece
               ? `${restartLabel(setPiece.kind)} · ${kind === "low-pass" ? "Low-pass" : "High-pass"}`
               : `${restart?.kind === "free-kick" ? "Free-kick · " : ""}${kind === "low-pass" ? "Low-pass" : "High-pass"}`;
+    if (difficulty > 100)
+      throw new Error("A pass or throw-in cannot have difficulty above 100.");
+    if (!oneTouchPass) {
+      const blocker =
+        restart || setPiece ? undefined : blockingDefenders(s, ballPlayer)[0];
+      if (blocker)
+        throw new Error(
+          `${ballPlayer.name} must feint past ${blocker.name} before passing.`,
+        );
+      s.pendingPass = null;
+    }
     if (!oneTouchPass) s.foulRestart = null;
     if (!oneTouchPass) s.setPieceRestart = null;
     let dice = automatic ? undefined : roll(s),

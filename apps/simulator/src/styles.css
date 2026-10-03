@@ -1394,7 +1394,7 @@ button:hover:not(:disabled) {
 }
 .play-toolbar {
   display: grid;
-  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  grid-template-columns: minmax(150px, 1fr) minmax(0, 3fr) minmax(150px, 1fr);
   gap: 12px;
 }
 .toolbar-actions {
@@ -1504,6 +1504,32 @@ button:hover:not(:disabled) {
   gap: 16px;
   margin: 0;
   text-align: center;
+}
+.action-metrics {
+  width: 100%;
+  min-width: 0;
+}
+.action-metrics dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 54px minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  gap: 18px;
+}
+.action-metrics .metric-wing {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.action-metrics .metric-wing-left {
+  justify-content: flex-end;
+}
+.action-metrics .metric-wing-right {
+  justify-content: flex-start;
+}
+.action-metrics .dice-control {
+  justify-self: center;
 }
 .toolbar-metrics dt {
   font-size: 8px;

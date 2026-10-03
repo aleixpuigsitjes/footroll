@@ -1053,6 +1053,20 @@ function App() {
       setNotice("A one-touch Low-pass cannot exceed 30 yards.");
       return;
     }
+    const passDifficulty = ballPlayer
+      ? distance(ballPlayer, to) *
+        (passAction === "throw-in"
+          ? 2
+          : passAction === "defensive-header"
+            ? 3
+            : 1)
+      : 0;
+    if (passDifficulty > 100) {
+      setPassVisual(null);
+      setPassTarget(null);
+      setNotice("A pass or throw-in cannot have difficulty above 100.");
+      return;
+    }
     const pass = ballPlayer
       ? actionPreview(match, passAction, ballPlayer, to)
       : null;
@@ -1680,10 +1694,15 @@ function App() {
                       match.oneTouch.actions.includes("low-pass"))
                   }
                   maxPassDistance={
-                    action === "low-pass" ||
-                    match.oneTouch?.actions.includes("low-pass")
-                      ? 30
-                      : undefined
+                    action === "defensive-header"
+                      ? Math.floor(100 / 3)
+                      : action === "low-pass" ||
+                          (!action &&
+                            match.oneTouch?.actions.includes("low-pass"))
+                        ? 30
+                        : ballPassAction === "throw-in"
+                          ? 50
+                          : 100
                   }
                   match={match}
                   replay={replay}
@@ -2116,23 +2135,28 @@ function App() {
                 </div>
               </div>
             ) : (
-              <div className="toolbar-metrics" aria-label="Action values">
+              <div
+                className="toolbar-metrics action-metrics"
+                aria-label="Action values"
+              >
                 <dl>
-                  <div>
-                    <dt>Difficulty</dt>
-                    <dd>
-                      {displayedPreview?.difficulty ??
-                        displayedResolution?.difficulty ??
-                        "—"}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>Skill</dt>
-                    <dd>
-                      {displayedPreview?.skill ??
-                        displayedResolution?.skill ??
-                        "—"}
-                    </dd>
+                  <div className="metric-wing metric-wing-left">
+                    <div>
+                      <dt>Difficulty</dt>
+                      <dd>
+                        {displayedPreview?.difficulty ??
+                          displayedResolution?.difficulty ??
+                          "—"}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>Skill</dt>
+                      <dd>
+                        {displayedPreview?.skill ??
+                          displayedResolution?.skill ??
+                          "—"}
+                      </dd>
+                    </div>
                   </div>
                   <div className="dice-control">
                     <dt className="sr-only">Roll dice</dt>
@@ -2168,30 +2192,32 @@ function App() {
                       </button>
                     </dd>
                   </div>
-                  <div>
-                    <dt>
-                      {displayedResolution?.label === "Foul" ? "D6" : "D100"}
-                    </dt>
-                    <dd>{displayedResolution?.dice ?? "—"}</dd>
-                  </div>
-                  <div>
-                    <dt>Score</dt>
-                    <dd>{displayedResolution?.score ?? "—"}</dd>
-                  </div>
-                  <div>
-                    <dt>Result</dt>
-                    <dd>
-                      {displayedCardColor && (
-                        <CardIcon color={displayedCardColor} />
-                      )}
-                      {displayedResolution?.result === null ||
-                      displayedResolution?.result === undefined
-                        ? (displayedResolution?.outcome ??
-                          (displayedPreview && "status" in displayedPreview
-                            ? displayedPreview.status
-                            : "—"))
-                        : `${displayedResolution.outcome} (${displayedResolution.result >= 0 ? "+" : ""}${displayedResolution.result})`}
-                    </dd>
+                  <div className="metric-wing metric-wing-right">
+                    <div>
+                      <dt>
+                        {displayedResolution?.label === "Foul" ? "D6" : "D100"}
+                      </dt>
+                      <dd>{displayedResolution?.dice ?? "—"}</dd>
+                    </div>
+                    <div>
+                      <dt>Score</dt>
+                      <dd>{displayedResolution?.score ?? "—"}</dd>
+                    </div>
+                    <div>
+                      <dt>Result</dt>
+                      <dd>
+                        {displayedCardColor && (
+                          <CardIcon color={displayedCardColor} />
+                        )}
+                        {displayedResolution?.result === null ||
+                        displayedResolution?.result === undefined
+                          ? (displayedResolution?.outcome ??
+                            (displayedPreview && "status" in displayedPreview
+                              ? displayedPreview.status
+                              : "—"))
+                          : `${displayedResolution.outcome} (${displayedResolution.result >= 0 ? "+" : ""}${displayedResolution.result})`}
+                      </dd>
+                    </div>
                   </div>
                 </dl>
               </div>

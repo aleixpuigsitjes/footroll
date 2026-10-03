@@ -233,6 +233,14 @@ export function actionPreview(
       distance(ball, targetPoint) === 0
     )
       return null;
+    const length = distance(ball, targetPoint),
+      defensiveHeader = kind === "defensive-header",
+      difficulty = defensiveHeader
+        ? length * 3
+        : match.setPieceRestart?.kind === "throw-in"
+          ? length * 2
+          : length;
+    if (difficulty > 100) return null;
     if (!oneTouchPass) {
       if (
         match.pendingPass &&
@@ -277,9 +285,7 @@ export function actionPreview(
           label: `${ballPlayer.name} · Feint past ${blocker.name} to pass`,
         };
     }
-    const length = distance(ball, targetPoint),
-      defensiveHeader = kind === "defensive-header",
-      type = oneTouchPass
+    const type = oneTouchPass
         ? defensiveHeader
           ? "high-pass"
           : "low-pass"
@@ -296,11 +302,6 @@ export function actionPreview(
             : type === "low-pass"
               ? ballPlayer.lowPass
               : ballPlayer.highPass,
-      difficulty = defensiveHeader
-        ? length * 3
-        : match.setPieceRestart?.kind === "throw-in"
-          ? length * 2
-          : length,
       interceptors = defensiveHeader
         ? []
         : passInterceptors(match, ballPlayer, targetPoint, type),

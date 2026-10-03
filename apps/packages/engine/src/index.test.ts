@@ -1056,6 +1056,12 @@ describe("practice engine", () => {
     expect(() =>
       applyCommand(started, { type: "pass", to: { x: 80, y: 10 } }),
     ).toThrow("Throw-in action");
+    expect(() =>
+      applyCommand(started, { type: "throw-in", to: { x: 30, y: 0 } }),
+    ).not.toThrow();
+    expect(() =>
+      applyCommand(started, { type: "throw-in", to: { x: 29, y: 0 } }),
+    ).toThrow("difficulty above 100");
 
     const thrown = applyCommand(started, {
       type: "throw-in",
@@ -1067,6 +1073,19 @@ describe("practice engine", () => {
         event.resolution?.label.startsWith("Throw-in"),
       )?.resolution,
     ).toMatchObject({ difficulty: 20, skill: taker.throwIn });
+  });
+  it("rejects passes whose difficulty exceeds 100", () => {
+    const s = createMatch(37),
+      passer = carrier(s);
+    Object.assign(passer, { x: 0, y: 0 });
+    s.ball = { x: 0, y: 0 };
+
+    expect(() =>
+      applyCommand(s, { type: "pass", to: { x: 99, y: 1 } }),
+    ).not.toThrow();
+    expect(() =>
+      applyCommand(s, { type: "pass", to: { x: 99, y: 2 } }),
+    ).toThrow("difficulty above 100");
   });
   it("resolves low passes automatically within the skill distance", () => {
     const s = createMatch(123);

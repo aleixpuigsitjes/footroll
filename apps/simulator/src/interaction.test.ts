@@ -59,6 +59,17 @@ describe("pitch interaction", () => {
     const resolved = applyCommand(s, preview.command);
     expect(carrier(resolved).id).toBe(p.id);
   });
+  it("does not preview passes whose difficulty exceeds 100", () => {
+    const s = createMatch(),
+      passer = carrier(s);
+    Object.assign(passer, { x: 0, y: 0 });
+    s.ball = { x: 0, y: 0 };
+
+    expect(actionPreview(s, "pass", passer, { x: 99, y: 1 })).toMatchObject({
+      difficulty: 100,
+    });
+    expect(actionPreview(s, "pass", passer, { x: 99, y: 2 })).toBeNull();
+  });
   it("explains when an automatic-range low-pass requires an interception roll", () => {
     const s = createMatch(),
       ballCarrier = carrier(s);
